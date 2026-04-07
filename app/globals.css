@@ -1,26 +1,21 @@
 @import "tailwindcss";
 
+/* הגדרת צבעי הבסיס לכל האתר */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a1628;
+  --foreground: #e8f0fe;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* כפייה של הרקע הכהה גם אם המחשב במצב בהיר */
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a1628;
+    --foreground: #e8f0fe;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
