@@ -7,33 +7,19 @@ export default function AboutPage() {
   const specializations = [
     {
       title: "Agentic Workflows & AI Automation",
-      description: "We design and deploy autonomous AI agents that transform static business processes into dynamic and self-operating workflows. By leveraging platforms like n8n, we connect your existing tech stack including CRM, Slack, Gmail and databases to execute complex tasks without manual intervention. Our focus is on Agentic design where AI doesn't just suggest but actually acts.",
+      description: "We design and deploy autonomous AI agents that transform static business processes into dynamic, self-operating workflows. By leveraging platforms like n8n, we connect your existing tech stack including CRM, Slack, Gmail and databases to execute complex tasks without manual intervention. Our focus is on agentic design where AI does not just suggest but actually acts.",
       techStack: ["n8n", "LangChain", "Python", "Autonomous Agents", "API Architecture"],
       imagePlaceholder: "Screenshot: An intricate n8n workflow showing multi-step logic and error handling",
     },
     {
       title: "Professional Web Presence",
-      description:
-        "Your website is often the first impression your organization makes. " +
-        "We design and build clean, fast, and professional websites tailored to " +
-        "SMEs and municipalities - from a polished single-page landing to multi-page " +
-        "sites with clear messaging, service breakdowns, and contact flows. " +
-        "And when you're ready, we can extend your site with embedded AI assistants, " +
-        "visitor analytics, and more.",
-      techStack: [
-        "HTML / CSS / JS",
-        "Next.js",
-        "Responsive Design",
-        "AI Chat Integration",
-        "Analytics",
-        "Cloudflare Deploy",
-      ],
-      imagePlaceholder:
-        "Screenshot: A live client website — clean, branded, mobile-ready",
+      description: "Your website is often the first impression your organization makes. We design and build clean, fast, and professional websites tailored to SMEs and municipalities, from a polished single-page landing to multi-page sites with clear messaging, service breakdowns, and contact flows. And when you are ready, we can extend your site with embedded AI assistants, visitor analytics, and more.",
+      techStack: ["HTML / CSS / JS", "Next.js", "Responsive Design", "AI Chat Integration", "Analytics", "Cloudflare Deploy"],
+      imagePlaceholder: "Screenshot: A live client website, clean, branded, mobile-ready",
     },
     {
       title: "AI Strategy & Consultation",
-      description: "Moving from AI hype to AI ROI requires a clear roadmap. We provide executive-level consulting for SMEs and municipalities to identify the highest-impact use cases for AI adoption. We bridge the gap between technical possibility and operational reality to ensure every automation serves a measurable business goal.",
+      description: "Moving from AI hype to AI ROI requires a clear roadmap. We work with SMEs and municipalities to identify the highest-impact use cases for AI adoption. We bridge the gap between technical possibility and operational reality, making sure every step serves a measurable business goal. No prior AI knowledge required.",
       techStack: ["AI Readiness Assessment", "ROI Analysis", "Implementation Roadmaps", "Ethics & Governance"],
       imagePlaceholder: "Screenshot: A professional AI implementation roadmap or strategy framework",
     }
@@ -41,14 +27,14 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen bg-[#0a1628] text-white">
-      {/* Navigation - Simplified for About page */}
+      {/* Navigation */}
       <nav className="py-6 px-6 border-b border-blue-400/10">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#0072ff] bg-clip-text text-transparent">
             ARdata.ai
           </Link>
           <Link href="/" className="text-sm text-[#7fa8d4] hover:text-white transition-colors">
-            Back to Home →
+            Back to Home
           </Link>
         </div>
       </nav>
@@ -60,8 +46,8 @@ export default function AboutPage() {
             Technical Expertise
           </h1>
           <p className="text-[#7fa8d4] text-xl max-w-3xl mx-auto leading-relaxed">
-            Deep-diving into the architectures and methodologies that power our 
-            AI-driven solutions for the modern enterprise.
+            We work with small and medium-sized businesses worldwide, and local municipalities in Israel.
+            Organizations that know AI matters but are not sure where to begin. No in-house tech team required.
           </p>
         </section>
 
@@ -73,7 +59,7 @@ export default function AboutPage() {
               {/* Text Side */}
               <div className="flex-1 space-y-8">
                 <div className="inline-block px-4 py-1 rounded-full bg-blue-400/10 border border-blue-400/20 text-[#00d4ff] text-sm font-medium">
-                   Expertise 0{index + 1}
+                  Expertise 0{index + 1}
                 </div>
                 <h2 className="text-4xl font-bold text-white leading-tight">{spec.title}</h2>
                 <p className="text-lg text-[#7fa8d4] leading-relaxed">
@@ -120,7 +106,7 @@ export default function AboutPage() {
         <section className="mt-40 text-center py-20 border-t border-blue-400/10">
           <h2 className="text-3xl font-bold mb-6">Ready to see these solutions in action?</h2>
           <Link href="/#contact" className="inline-block px-8 py-4 rounded-lg bg-gradient-to-r from-[#00d4ff] to-[#0072ff] text-white font-semibold hover:scale-105 transition-transform">
-            Book a Technical Deep-Dive
+            Book a Free Intro Call
           </Link>
         </section>
       </div>

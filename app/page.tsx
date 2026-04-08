@@ -20,10 +20,10 @@ export default function HomePage() {
   };
 
   const faqs = [
-    { q: "What types of organizations do you work with?", a: "We work with small and medium-sized businesses and local municipalities taking their first or next steps in AI adoption." },
+    { q: "Who is ARdata.ai for?", a: "We work with small and medium-sized businesses worldwide, and local municipalities in Israel. Organizations that know AI matters but aren't sure where to begin. No in-house tech team required." },
     { q: "Do I need technical knowledge to work with ARdata.ai?", a: "Not at all. We translate complex AI concepts into clear, actionable steps designed for non-technical decision-makers." },
     { q: "What does an agentic automation actually do?", a: "An AI agent can autonomously complete tasks like data processing, customer communication, scheduling, and reporting without constant human intervention." },
-    { q: "How long does a typical project take?", a: "It depends on scope. Consulting engagements can begin immediately. Automation projects typically run 2–6 weeks. Web projects are usually delivered within 1–3 weeks." },
+    { q: "How long does a typical project take?", a: "It depends on scope. Consulting engagements can begin immediately. Automation projects typically run 2 to 6 weeks. Web projects are usually delivered within 1 to 3 weeks." },
     { q: "How do I get started?", a: "Simply reach out via the contact section below and we'll schedule a free introductory call." },
   ];
 
@@ -36,7 +36,6 @@ export default function HomePage() {
             ARdata.ai
           </Link>
           
-          {/* Desktop Links - Updated for better visibility */}
           <ul className="hidden md:flex gap-10 items-center">
             <li>
               <Link href="/about" className="text-sm font-semibold text-white hover:text-[#00d4ff] transition-all">
@@ -52,7 +51,6 @@ export default function HomePage() {
             ))}
           </ul>
 
-          {/* Mobile Toggle */}
           <button className="md:hidden flex flex-col gap-1.5 z-[1001]" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span className={`w-6 h-0.5 bg-white transition-transform ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}></span>
             <span className={`w-6 h-0.5 bg-white transition-opacity ${isMobileMenuOpen ? "opacity-0" : ""}`}></span>
@@ -60,7 +58,6 @@ export default function HomePage() {
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
         <div className={`fixed inset-0 bg-[#0a1628] flex flex-col items-center justify-center gap-8 transition-all duration-500 md:hidden ${isMobileMenuOpen ? "top-0" : "-top-full"}`}>
           <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-[#00d4ff]">
             About Us
@@ -73,7 +70,7 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Hero Section - DASH REMOVED */}
+      {/* Hero Section */}
       <header className="relative h-screen flex items-center justify-center text-center px-6">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_40%,#122a50_0%,#0a1628_70%)]">
           <div className="absolute inset-0 opacity-25 blur-[70px] animate-pulse" style={{ background: "radial-gradient(circle at 20% 30%, #0055cc 0%, transparent 50%)" }}></div>
@@ -81,11 +78,11 @@ export default function HomePage() {
         
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight text-white">
-            The AI Advantage: <br />
-            <span className="bg-gradient-to-r from-[#00d4ff] to-[#0072ff] bg-clip-text text-transparent">Built for Your Business</span>
+            AI is everywhere.<br />
+            <span className="bg-gradient-to-r from-[#00d4ff] to-[#0072ff] bg-clip-text text-transparent">Knowing where to start is the hard part.</span>
           </h1>
           <p className="text-lg md:text-xl text-[#7fa8d4] mb-10 max-w-2xl mx-auto">
-            Empowering SMEs & Municipalities with AI Consulting, Agentic Automations & Professional Web Presence.
+            We help small businesses and local municipalities take their first real steps in AI, with a clear plan, the right tools, and zero technical jargon.
           </p>
           <div className="flex flex-wrap justify-center gap-5">
             <Link href="/about" className="px-8 py-4 rounded-lg bg-gradient-to-r from-[#00d4ff] to-[#0072ff] text-white font-semibold shadow-[0_4px_20px_rgba(0,114,255,0.35)] hover:-translate-y-1 transition-transform text-center">
@@ -102,13 +99,13 @@ export default function HomePage() {
       <section id="services" className="py-24 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">What We Do</h2>
-          <p className="text-[#7fa8d4]">Cutting-edge solutions tailored to your operational needs.</p>
+          <p className="text-[#7fa8d4]">Practical AI solutions for organizations that are ready to move from curiosity to results.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { title: "AI Consulting", icon: "M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5 M2 12l10 5 10-5", desc: "We guide businesses and local governments through their first steps into artificial intelligence." },
-            { title: "Agentic Automations", icon: "M2 3h20v14H2z M8 21h8 M12 17v4 M7 8l3 3-3 3 M12 14h5", desc: "We design autonomous AI agents that eliminate bottlenecks and reduce manual work." },
-            { title: "Professional Web Presence", icon: "M16 18l6-6-6-6M8 6l-6 6 6 6 M12 4l-2 16", desc: "Modern, fast, and high-converting websites designed to represent your brand at its best." }
+            { title: "AI Consulting", icon: "M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5 M2 12l10 5 10-5", desc: "We guide businesses and local governments through their first real steps in AI. Strategy, tools, and roadmaps built for non-technical teams." },
+            { title: "Agentic Automations", icon: "M2 3h20v14H2z M8 21h8 M12 17v4 M7 8l3 3-3 3 M12 14h5", desc: "We design autonomous AI agents that eliminate bottlenecks, reduce manual work, and handle tasks that were previously too costly to automate." },
+            { title: "Professional Web Presence", icon: "M16 18l6-6-6-6M8 6l-6 6 6 6 M12 4l-2 16", desc: "Modern, fast, and professional websites for SMEs and municipalities. From a clean landing page to a full multi-page site, built to grow with you." }
           ].map((service, i) => (
             <div key={i} className="group relative bg-[#0f1e38] border border-blue-400/15 p-10 rounded-2xl transition-all hover:-translate-y-2 hover:bg-[#122040] hover:shadow-2xl overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00d4ff] to-[#0072ff] opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -145,7 +142,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto bg-[#0f1e38] border border-blue-400/15 rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-[#00d4ff] to-[#0072ff] opacity-60"></div>
           <h2 className="text-4xl font-bold mb-4 text-white">Let's Talk</h2>
-          <p className="text-[#7fa8d4] mb-8">Ready to explore what AI can do for your organization?</p>
+          <p className="text-[#7fa8d4] mb-8">Ready to explore what AI can do for your organization? We would love to hear from you.</p>
           <a href="mailto:ardata.ai@gmail.com" className="text-3xl md:text-5xl font-bold text-[#00d4ff] hover:text-white transition-all block mb-10 break-all">
             ardata.ai@gmail.com
           </a>
@@ -163,7 +160,7 @@ export default function HomePage() {
             <li key={item}><a href={`#${item}`} className="hover:text-white transition-colors capitalize">{item}</a></li>
           ))}
         </ul>
-        <p className="text-[#3d6080] text-sm">© 2026 ARdata.ai — All rights reserved.</p>
+        <p className="text-[#3d6080] text-sm">© 2026 ARdata.ai. All rights reserved.</p>
       </footer>
     </main>
   );
