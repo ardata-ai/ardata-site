@@ -12,10 +12,24 @@ export default function AboutPage() {
       imagePlaceholder: "Screenshot: An intricate n8n workflow showing multi-step logic and error handling",
     },
     {
-      title: "Data Engineering & Cloud Strategy",
-      description: "Data is the fuel for AI. We build robust and scalable data warehouses from the ground up, specializing in Snowflake and Azure environments. From designing multi-stage ETL pipelines to implementing Data Mesh strategies, we ensure your data is clean, accessible and ready for high-level analytics and machine learning applications.",
-      techStack: ["Snowflake", "Azure Data Factory", "ETL/ELT", "SQL", "Data Modeling"],
-      imagePlaceholder: "Screenshot: A Snowflake warehouse dashboard or a complex data lineage diagram",
+      title: "Professional Web Presence",
+      description:
+        "Your website is often the first impression your organization makes. " +
+        "We design and build clean, fast, and professional websites tailored to " +
+        "SMEs and municipalities — from a polished single-page landing to multi-page " +
+        "sites with clear messaging, service breakdowns, and contact flows. " +
+        "And when you're ready, we can extend your site with embedded AI assistants, " +
+        "visitor analytics, and more.",
+      techStack: [
+        "HTML / CSS / JS",
+        "Next.js",
+        "Responsive Design",
+        "AI Chat Integration",
+        "Analytics",
+        "Cloudflare Deploy",
+      ],
+      imagePlaceholder:
+        "Screenshot: A live client website — clean, branded, mobile-ready",
     },
     {
       title: "AI Strategy & Consultation",
