@@ -16,7 +16,7 @@ export default function AboutPage() {
       description:
         "Your website is often the first impression your organization makes. " +
         "We design and build clean, fast, and professional websites tailored to " +
-        "SMEs and municipalities — from a polished single-page landing to multi-page " +
+        "SMEs and municipalities - from a polished single-page landing to multi-page " +
         "sites with clear messaging, service breakdowns, and contact flows. " +
         "And when you're ready, we can extend your site with embedded AI assistants, " +
         "visitor analytics, and more.",
