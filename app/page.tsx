@@ -14,7 +14,7 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // מניעת גלילה כשהתפריט פתוח
+  // ניהול גלילה כשהתפריט פתוח
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -39,7 +39,7 @@ export default function HomePage() {
   return (
     <main className="relative overflow-x-hidden bg-[#0a1628]">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-[1000] transition-all duration-300 ${isScrolled || isMobileMenuOpen ? "bg-[#0a1628]/95 backdrop-blur-md py-3 border-b border-blue-400/15" : "bg-transparent py-5"}`}>
+      <nav className={`fixed top-0 w-full z-[1000] transition-all duration-300 ${isScrolled ? "bg-[#0a1628]/95 backdrop-blur-md py-3 border-b border-blue-400/15" : "bg-transparent py-5"}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#0072ff] bg-clip-text text-transparent z-[1002]">
             ARdata.ai
@@ -61,50 +61,58 @@ export default function HomePage() {
           </ul>
 
           {/* Hamburger Button */}
-          <button className="md:hidden flex flex-col gap-1.5 z-[1002] p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}></span>
-            <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`}></span>
-            <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
+          <button className="md:hidden z-[1002] p-2 flex flex-col gap-1.5 items-end" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <span className={`h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`}></span>
+            <span className={`h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : "w-4"}`}></span>
+            <span className={`h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "w-6 -rotate-45 -translate-y-2" : "w-5"}`}></span>
           </button>
         </div>
 
-        {/* Mobile Menu Overlay - FIXED TO FULLSCREEN */}
-      <div 
-        className={`fixed inset-0 bg-[#0a1628] z-[1001] flex flex-col items-center justify-center gap-10 transition-all duration-500 md:hidden ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
-        onClick={() => setIsMobileMenuOpen(false)} // הוסף את השורה הזו
-      >
-        <Link href="/about" className="text-3xl font-bold text-white hover:text-[#00d4ff]">
-          About Us
-        </Link>
-        {["services", "faq", "contact"].map((item) => (
-          <a key={item} href={`#${item}`} className="text-3xl font-bold capitalize text-white hover:text-[#00d4ff]">
-            {item}
-          </a>
-        ))}
-      </div>
+        {/* Side Mobile Menu (Drawer) */}
+        <div className={`fixed inset-y-0 right-0 w-[280px] bg-[#0f1e38] shadow-2xl z-[1001] transform transition-transform duration-300 ease-in-out md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+          <div className="flex flex-col pt-32 px-10 gap-8">
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-[#00d4ff]">
+              About Us
+            </Link>
+            {["services", "faq", "contact"].map((item) => (
+              <a key={item} href={`#${item}`} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium capitalize text-white hover:text-[#00d4ff]">
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Dark Overlay for Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div 
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[1000] md:hidden" 
+            onClick={() => setIsMobileMenuOpen(false)}
+          ></div>
+        )}
       </nav>
 
-      {/* Hero Section - RESPONSIVE TEXT FIXED */}
-      <header className="relative min-h-screen flex items-center justify-center text-center px-6 pt-24 pb-12">
+      {/* Hero Section */}
+      <header className="relative min-h-screen flex items-center justify-center text-center px-6 pt-20">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_40%,#122a50_0%,#0a1628_70%)]">
           <div className="absolute inset-0 opacity-25 blur-[70px] animate-pulse" style={{ background: "radial-gradient(circle at 20% 30%, #0055cc 0%, transparent 50%)" }}></div>
         </div>
         
         <div className="max-w-4xl mx-auto">
-          {/* Sub-header text */}
-          <span className="block text-[#00d4ff] text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-4 opacity-90">
+          {/* Sub-header (The "AI IS EVERYWHERE" part) */}
+          <span className="block text-[#00d4ff] text-lg md:text-2xl font-black tracking-[0.3em] uppercase mb-6 opacity-100">
             AI is everywhere.
           </span>
           
           {/* Main Title */}
-          <h1 className="text-4xl md:text-7xl font-extrabold leading-[1.1] mb-8 tracking-tight text-white px-2">
-            Knowing where to start <br className="hidden md:block" /> 
+          <h1 className="text-5xl md:text-8xl font-extrabold leading-[1.05] mb-10 tracking-tight text-white px-2">
+            Knowing where <br className="hidden md:block" /> to start is the <br className="hidden md:block" /> 
             <span className="bg-gradient-to-r from-[#00d4ff] via-[#4db8ff] to-[#0072ff] bg-clip-text text-transparent">
-              is the hard part.
+              hard part.
             </span>
           </h1>
 
-          <p className="text-base md:text-xl text-[#7fa8d4] mb-12 max-w-2xl mx-auto leading-relaxed">
+          {/* Description - Made smaller and more elegant */}
+          <p className="text-sm md:text-lg text-[#7fa8d4] mb-12 max-w-lg mx-auto leading-relaxed opacity-80 font-medium">
             We help small businesses and local municipalities take their first real steps in AI, with a clear plan, the right tools, and zero technical jargon.
           </p>
 
@@ -161,7 +169,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Contact Section - EMAIL WRAPPING FIXED */}
+      {/* Contact Section */}
       <section id="contact" className="py-24 px-6">
         <div className="max-w-5xl mx-auto bg-gradient-to-b from-[#122445] to-[#0f1e38] border border-blue-400/15 rounded-[3rem] p-10 md:p-24 text-center relative overflow-hidden">
           <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-[#00d4ff] to-[#0072ff] opacity-60"></div>
