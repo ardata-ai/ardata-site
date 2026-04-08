@@ -19,7 +19,7 @@ export default function HomePage() {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = 'auto';
     }
   }, [isMobileMenuOpen]);
 
@@ -69,16 +69,19 @@ export default function HomePage() {
         </div>
 
         {/* Mobile Menu Overlay - FIXED TO FULLSCREEN */}
-        <div className={`fixed inset-0 bg-[#0a1628] z-[1001] flex flex-col items-center justify-center gap-10 transition-all duration-500 md:hidden ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}>
-          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-bold text-white hover:text-[#00d4ff]">
-            About Us
-          </Link>
-          {["services", "faq", "contact"].map((item) => (
-            <a key={item} href={`#${item}`} onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-bold capitalize text-white hover:text-[#00d4ff]">
-              {item}
-            </a>
-          ))}
-        </div>
+      <div 
+        className={`fixed inset-0 bg-[#0a1628] z-[1001] flex flex-col items-center justify-center gap-10 transition-all duration-500 md:hidden ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+        onClick={() => setIsMobileMenuOpen(false)} // הוסף את השורה הזו
+      >
+        <Link href="/about" className="text-3xl font-bold text-white hover:text-[#00d4ff]">
+          About Us
+        </Link>
+        {["services", "faq", "contact"].map((item) => (
+          <a key={item} href={`#${item}`} className="text-3xl font-bold capitalize text-white hover:text-[#00d4ff]">
+            {item}
+          </a>
+        ))}
+      </div>
       </nav>
 
       {/* Hero Section - RESPONSIVE TEXT FIXED */}
