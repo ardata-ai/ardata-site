@@ -190,7 +190,7 @@ export default function HomePage() {
             </div>
 
             <div className="bg-[#071325] p-10 rounded-2xl border border-[#3c494e]/15">
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" action="https://formspree.io/f/mpqoegpa" method="POST">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-[#5c6d74] uppercase tracking-widest">First Name</label>
