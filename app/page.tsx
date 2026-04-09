@@ -85,22 +85,19 @@ export default function HomePage() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_40%,#122a50_0%,#071325_70%)]"></div>
 
         <div className="max-w-5xl mx-auto">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#00d4ff]/10 border border-[#00d4ff]/20 text-[#00d4ff] text-xs font-black tracking-widest uppercase mb-8">
-            AI is everywhere.
-          </span>
-
-          {/* Updated headline matching Stitch design */}
           <h1 className="text-6xl md:text-8xl font-extrabold leading-[1.05] mb-10 tracking-tighter text-white">
-            Knowing where to{" "}
-            <br className="hidden md:block" />
+            AI is everywhere.
+            <br />
             <span
               style={{
-                background: "linear-gradient(90deg, #00d4ff 0%, #4db8ff 50%, #ffffff 100%)",
+                background: "linear-gradient(90deg, #00d4ff 0%, #4db8ff 60%, #a8e8ff 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}
             >
+              Knowing where to
+              <br className="hidden md:block" />
               start
             </span>{" "}
             is the hard
