@@ -130,11 +130,11 @@ export default function HomePage() {
           <p className="text-[#bbc9cf] text-xl max-w-2xl">Practical AI solutions for organizations ready to move from curiosity to results.</p>
         </div>
 
-        {/* Asymmetric grid: large card on left, two smaller on right */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        {/* 2x2 grid: large diagonal (top-left, bottom-right), small diagonal (top-right, bottom-left) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          {/* Large card — AI Consulting */}
-          <div className="group relative bg-[#101c2e] border border-[#3c494e]/20 p-10 rounded-2xl transition-all hover:-translate-y-1 hover:border-[#00d4ff]/30 shadow-xl flex flex-col justify-between min-h-[340px]">
+          {/* TOP-LEFT — Large: AI Consulting */}
+          <div className="group relative bg-[#101c2e] border border-[#3c494e]/20 p-10 rounded-2xl transition-all hover:-translate-y-1 hover:border-[#00d4ff]/30 shadow-xl flex flex-col justify-between md:row-span-1 min-h-[360px]">
             <div>
               <div className="w-12 h-12 rounded-lg bg-[#00d4ff]/10 flex items-center justify-center mb-8 group-hover:bg-[#00d4ff]/20 transition-colors">
                 <svg className="w-6 h-6 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,9 +142,11 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-[#00d4ff] transition-colors">AI Consulting</h3>
-              <p className="text-[#bbc9cf] leading-relaxed font-medium mb-6">We guide businesses and local governments through their first real steps in AI. Strategy, tools, and roadmaps built for non-technical teams.</p>
+              <p className="text-[#bbc9cf] leading-relaxed font-medium mb-6">
+                Navigate the complexity of LLMs and generative architectures. We define the roadmap, select the stack, and ensure your AI investment delivers measurable ROI.
+              </p>
               <ul className="space-y-2 mb-8">
-                {["Strategy Design", "Tool Selection", "Implementation Roadmap"].map((item) => (
+                {["Tech-Stack Audit", "AI Architecture Design", "Ethical Compliance Mapping", "Scaling Strategies"].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm text-[#7fa8d4]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] flex-shrink-0"></span>
                     {item}
@@ -155,68 +157,72 @@ export default function HomePage() {
             <a href="#contact" className="text-sm font-bold text-[#00d4ff] hover:underline">Learn More →</a>
           </div>
 
-          {/* Right column: two smaller cards stacked */}
-          <div className="flex flex-col gap-6">
-
-            {/* Agentic Automations */}
-            <div className="group relative bg-[#101c2e] border border-[#3c494e]/20 p-8 rounded-2xl transition-all hover:-translate-y-1 hover:border-[#00d4ff]/30 shadow-xl flex flex-col justify-between flex-1">
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-[#00d4ff]/10 flex items-center justify-center mb-6 group-hover:bg-[#00d4ff]/20 transition-colors">
-                  <svg className="w-5 h-5 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-white group-hover:text-[#00d4ff] transition-colors">Agentic Automations</h3>
-                <p className="text-[#bbc9cf] leading-relaxed font-medium text-sm mb-4">Autonomous AI agents that eliminate bottlenecks and handle tasks that were previously too costly to automate.</p>
-                <ul className="space-y-1.5 mb-6">
-                  {["Workflow Automation", "AI Agent Design", "System Integration"].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs text-[#7fa8d4]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] flex-shrink-0"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+          {/* TOP-RIGHT — Small: Agentic Automations */}
+          <div className="group relative bg-[#101c2e] border border-[#3c494e]/20 p-8 rounded-2xl transition-all hover:-translate-y-1 hover:border-[#00d4ff]/30 shadow-xl flex flex-col justify-between min-h-[260px]">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-[#00d4ff]/10 flex items-center justify-center mb-6 group-hover:bg-[#00d4ff]/20 transition-colors">
+                <svg className="w-5 h-5 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
               </div>
-              <a href="#contact" className="text-sm font-bold text-[#00d4ff] hover:underline">Learn More →</a>
+              <h3 className="text-xl font-bold mb-2 text-white group-hover:text-[#00d4ff] transition-colors">Agentic Automations</h3>
+              <p className="text-[#bbc9cf] leading-relaxed font-medium text-sm mb-4">
+                Systems that don't just process data — they take action. Custom autonomous agents for complex workflows.
+              </p>
+              <ul className="space-y-1.5 mb-6">
+                {["Workflow Automation", "AI Agent Design", "System Integration"].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-xs text-[#7fa8d4]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] flex-shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
+            <a href="#contact" className="text-sm font-bold text-[#00d4ff] hover:underline">Learn More →</a>
+          </div>
 
-            {/* Professional Web Presence */}
-            <div className="group relative bg-[#101c2e] border border-[#3c494e]/20 p-8 rounded-2xl transition-all hover:-translate-y-1 hover:border-[#00d4ff]/30 shadow-xl flex flex-col justify-between flex-1">
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-[#00d4ff]/10 flex items-center justify-center mb-6 group-hover:bg-[#00d4ff]/20 transition-colors">
-                  <svg className="w-5 h-5 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-white group-hover:text-[#00d4ff] transition-colors">Professional Web Presence</h3>
-                <p className="text-[#bbc9cf] leading-relaxed font-medium text-sm mb-4">Modern, fast websites for SMEs and municipalities — from a landing page to a full multi-page site.</p>
-                <ul className="space-y-1.5 mb-6">
-                  {["Custom Design", "Next.js Development", "SEO & Performance"].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs text-[#7fa8d4]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] flex-shrink-0"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+          {/* BOTTOM-LEFT — Small: Professional Presence + Logo Strip */}
+          <div className="group relative bg-[#101c2e] border border-[#3c494e]/20 p-8 rounded-2xl transition-all hover:-translate-y-1 hover:border-[#00d4ff]/30 shadow-xl flex flex-col justify-between min-h-[260px]">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-[#00d4ff]/10 flex items-center justify-center mb-6 group-hover:bg-[#00d4ff]/20 transition-colors">
+                <svg className="w-5 h-5 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
               </div>
-              <a href="#contact" className="text-sm font-bold text-[#00d4ff] hover:underline">Explore Portfolio →</a>
+              <h3 className="text-xl font-bold mb-2 text-white group-hover:text-[#00d4ff] transition-colors">Professional Presence</h3>
+              <p className="text-[#bbc9cf] leading-relaxed font-medium text-sm mb-4">
+                High-fidelity web experiences that communicate your brand's technical authority and forward-thinking vision.
+              </p>
+              <ul className="space-y-1.5 mb-6">
+                {["Custom Design", "Next.js Development", "SEO & Performance"].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-xs text-[#7fa8d4]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] flex-shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
+            <a href="#contact" className="text-sm font-bold text-[#00d4ff] hover:underline">Explore Portfolio →</a>
           </div>
-        </div>
 
-        {/* Tools / Logo Strip */}
-        <div className="mt-16 border-t border-[#3c494e]/20 pt-12">
-          <p className="text-xs font-black uppercase tracking-widest text-[#5c6d74] text-center mb-8">Tools & Platforms We Work With</p>
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-            {tools.map((tool) => (
-              <div key={tool.name} className="flex items-center gap-2 text-[#5c6d74] hover:text-[#bbc9cf] transition-colors">
-                <div className="w-7 h-7 rounded-md bg-[#101c2e] border border-[#3c494e]/20 flex items-center justify-center text-xs font-black text-[#00d4ff]">
-                  {tool.letter}
-                </div>
-                <span className="text-sm font-semibold">{tool.name}</span>
+          {/* BOTTOM-RIGHT — Large: Tools & Platforms */}
+          <div className="relative bg-[#0d1829] border border-[#3c494e]/20 p-10 rounded-2xl shadow-xl flex flex-col justify-between min-h-[360px]">
+            <div>
+              <p className="text-xs font-black uppercase tracking-widest text-[#5c6d74] mb-8">Tools & Platforms We Work With</p>
+              <div className="grid grid-cols-2 gap-4">
+                {tools.map((tool) => (
+                  <div key={tool.name} className="flex items-center gap-3 text-[#7fa8d4] hover:text-[#bbc9cf] transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-[#101c2e] border border-[#3c494e]/20 flex items-center justify-center text-xs font-black text-[#00d4ff] flex-shrink-0">
+                      {tool.letter}
+                    </div>
+                    <span className="text-sm font-semibold">{tool.name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <p className="text-xs text-[#3c494e] mt-8">And more tools tailored to each project's needs.</p>
           </div>
+
         </div>
       </section>
 
