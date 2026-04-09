@@ -28,8 +28,8 @@ export default function HomePage() {
   };
 
   const faqs = [
-    { q: "Who is ARdata.ai for?", a: "We work with small and medium-sized businesses worldwide, and local municipalities in Israel. Organizations that know AI matters but aren't sure where to begin. No in-house tech team required." },
-    { q: "Do I need technical knowledge to work with ARdata.ai?", a: "Not at all. We translate complex AI concepts into clear, actionable steps designed for non-technical decision-makers." },
+    { q: "Who is ardata.ai for?", a: "We work with small and medium-sized businesses worldwide, and local municipalities in Israel. Organizations that know AI matters but aren't sure where to begin. No in-house tech team required." },
+    { q: "Do I need technical knowledge to work with ardata.ai?", a: "Not at all. We translate complex AI concepts into clear, actionable steps designed for non-technical decision-makers." },
     { q: "What does an agentic automation actually do?", a: "An AI agent can autonomously complete tasks like data processing, customer communication, scheduling, and reporting without constant human intervention." },
     { q: "How long does a typical project take?", a: "It depends on scope. Consulting engagements can begin immediately. Automation projects typically run 2 to 6 weeks. Web projects are usually delivered within 1 to 3 weeks." },
     { q: "How do I get started?", a: "Simply reach out via the contact section below and we'll schedule a free introductory call." },
@@ -41,7 +41,7 @@ export default function HomePage() {
       <nav className={`fixed top-0 w-full z-[1000] transition-all duration-300 ${isScrolled ? "bg-[#071325]/80 backdrop-blur-md py-4 border-b border-[#00d4ff]/10" : "bg-transparent py-6"}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold tracking-tighter text-[#a8e8ff] z-[1002]">
-            ARdata.ai
+            ardata.ai
           </Link>
           
           <ul className="hidden md:flex gap-10 items-center">
@@ -225,7 +225,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="py-20 bg-[#101c2e] border-t border-[#3c494e]/10 text-center px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="text-2xl font-bold tracking-tighter text-[#a8e8ff]">ARdata.ai</div>
+          <div className="text-2xl font-bold tracking-tighter text-[#a8e8ff]">ardata.ai</div>
           <ul className="flex flex-wrap justify-center gap-8 md:gap-12 text-[#bbc9cf] font-medium text-sm">
             <li><Link href="/about" className="hover:text-[#00d4ff] transition-colors">About Us</Link></li>
             {["services", "faq", "contact"].map(item => (
@@ -233,7 +233,7 @@ export default function HomePage() {
             ))}
           </ul>
           <div className="text-[#5c6d74] text-xs font-medium uppercase tracking-widest">
-            © 2026 ARdata.ai. All rights reserved.
+            © 2026 ardata.ai. All rights reserved.
           </div>
         </div>
       </footer>
