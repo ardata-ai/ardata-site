@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
-/* הגדרת צבעי הבסיס לכל האתר */
 :root {
-  --background: #0a1628;
+  --background: #071325;
   --foreground: #e8f0fe;
+  --primary: #00d4ff;
+  --secondary: #0072ff;
 }
 
-/* כפייה של הרקע הכהה גם אם המחשב במצב בהיר */
 @media (prefers-color-scheme: light) {
   :root {
-    --background: #0a1628;
+    --background: #071325;
     --foreground: #e8f0fe;
   }
 }
@@ -18,4 +18,23 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   margin: 0;
+  font-family: var(--font-jakarta), sans-serif;
+}
+
+/* Custom scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #071325;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a2a40;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #253a56;
 }

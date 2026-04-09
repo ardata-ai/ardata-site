@@ -14,7 +14,6 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ניהול גלילה כשהתפריט פתוח
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -37,30 +36,34 @@ export default function HomePage() {
   ];
 
   return (
-    <main className="relative overflow-x-hidden bg-[#0a1628]">
+    <main className="relative overflow-x-hidden bg-[#071325] selection:bg-[#00d4ff]/30">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-[1000] transition-all duration-300 ${isScrolled ? "bg-[#0a1628]/95 backdrop-blur-md py-3 border-b border-blue-400/15" : "bg-transparent py-5"}`}>
+      <nav className={`fixed top-0 w-full z-[1000] transition-all duration-300 ${isScrolled ? "bg-[#071325]/80 backdrop-blur-md py-4 border-b border-[#00d4ff]/10" : "bg-transparent py-6"}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#0072ff] bg-clip-text text-transparent z-[1002]">
+          <Link href="/" className="text-2xl font-bold tracking-tighter text-[#a8e8ff] z-[1002]">
             ARdata.ai
           </Link>
           
           <ul className="hidden md:flex gap-10 items-center">
             <li>
-              <Link href="/about" className="text-sm font-semibold text-white hover:text-[#00d4ff] transition-all">
+              <Link href="/about" className="text-sm font-semibold text-[#bbc9cf] hover:text-[#00d4ff] transition-all">
                 About Us
               </Link>
             </li>
             {["services", "faq", "contact"].map((item) => (
               <li key={item}>
-                <a href={`#${item}`} className="text-sm font-semibold text-white hover:text-[#00d4ff] transition-all capitalize">
+                <a href={`#${item}`} className="text-sm font-semibold text-[#bbc9cf] hover:text-[#00d4ff] transition-all capitalize">
                   {item}
                 </a>
               </li>
             ))}
+            <li>
+               <a href="#contact" className="px-6 py-2 rounded-lg bg-[#00d4ff] text-[#071325] font-bold text-sm hover:opacity-90 transition-all scale-95 active:scale-90">
+                Let's Talk
+              </a>
+            </li>
           </ul>
 
-          {/* Hamburger Button */}
           <button className="md:hidden z-[1002] p-2 flex flex-col gap-1.5 items-end" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span className={`h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`}></span>
             <span className={`h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : "w-4"}`}></span>
@@ -68,7 +71,6 @@ export default function HomePage() {
           </button>
         </div>
 
-        {/* Side Mobile Menu (Drawer) */}
         <div className={`fixed inset-y-0 right-0 w-[280px] bg-[#0f1e38] shadow-2xl z-[1001] transform transition-transform duration-300 ease-in-out md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
           <div className="flex flex-col pt-32 px-10 gap-8">
             <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-[#00d4ff]">
@@ -82,45 +84,34 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Dark Overlay for Mobile Menu */}
         {isMobileMenuOpen && (
-          <div 
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[1000] md:hidden" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          ></div>
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[1000] md:hidden" onClick={() => setIsMobileMenuOpen(false)}></div>
         )}
       </nav>
 
       {/* Hero Section */}
       <header className="relative min-h-screen flex items-center justify-center text-center px-6 pt-20">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_40%,#122a50_0%,#0a1628_70%)]">
-          <div className="absolute inset-0 opacity-25 blur-[70px] animate-pulse" style={{ background: "radial-gradient(circle at 20% 30%, #0055cc 0%, transparent 50%)" }}></div>
-        </div>
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_40%,#122a50_0%,#071325_70%)]"></div>
         
-        <div className="max-w-4xl mx-auto">
-          {/* Sub-header (The "AI IS EVERYWHERE" part) */}
-          <span className="block text-[#00d4ff] text-lg md:text-2xl font-black tracking-[0.3em] uppercase mb-6 opacity-100">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#00d4ff]/10 border border-[#00d4ff]/20 text-[#00d4ff] text-xs font-black tracking-widest uppercase mb-8">
             AI is everywhere.
           </span>
           
-          {/* Main Title */}
-          <h1 className="text-5xl md:text-8xl font-extrabold leading-[1.05] mb-10 tracking-tight text-white px-2">
+          <h1 className="text-6xl md:text-8xl font-extrabold leading-[1.05] mb-10 tracking-tighter text-white">
             Knowing where <br className="hidden md:block" /> to start is the <br className="hidden md:block" /> 
-            <span className="bg-gradient-to-r from-[#00d4ff] via-[#4db8ff] to-[#0072ff] bg-clip-text text-transparent">
-              hard part.
-            </span>
+            <span className="text-[#00d4ff]">hard part.</span>
           </h1>
 
-          {/* Description - Made smaller and more elegant */}
-          <p className="text-sm md:text-lg text-[#7fa8d4] mb-12 max-w-lg mx-auto leading-relaxed opacity-80 font-medium">
+          <p className="text-lg md:text-xl text-[#bbc9cf] mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
             We help small businesses and local municipalities take their first real steps in AI, with a clear plan, the right tools, and zero technical jargon.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-            <Link href="/about" className="w-full sm:w-auto px-10 py-4 rounded-xl bg-gradient-to-r from-[#00d4ff] to-[#0072ff] text-white font-bold shadow-[0_4px_25px_rgba(0,114,255,0.4)] hover:-translate-y-1 transition-all active:scale-95 text-center">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+            <Link href="/about" className="w-full sm:w-auto px-10 py-4 rounded-xl bg-[#00d4ff] text-[#071325] font-bold shadow-[0_4px_25px_rgba(0,212,255,0.3)] hover:-translate-y-1 transition-all active:scale-95 text-center">
               Our Technical Expertise
             </Link>
-            <a href="#contact" className="w-full sm:w-auto px-10 py-4 rounded-xl bg-blue-400/5 border border-blue-400/20 text-white font-bold hover:bg-blue-400/15 transition-all active:scale-95 text-center">
+            <a href="#contact" className="w-full sm:w-auto px-10 py-4 rounded-xl bg-transparent border border-[#00d4ff]/30 text-white font-bold hover:bg-[#00d4ff]/10 transition-all active:scale-95 text-center">
               Get in Touch
             </a>
           </div>
@@ -128,41 +119,40 @@ export default function HomePage() {
       </header>
 
       {/* Services Section */}
-      <section id="services" className="py-24 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">What We Do</h2>
-          <p className="text-[#7fa8d4] text-lg max-w-2xl mx-auto">Practical AI solutions for organizations that are ready to move from curiosity to results.</p>
+      <section id="services" className="py-32 max-w-7xl mx-auto px-6">
+        <div className="mb-20">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tighter">What We Do</h2>
+          <p className="text-[#bbc9cf] text-xl max-w-2xl">Practical AI solutions for organizations ready to move from curiosity to results.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { title: "AI Consulting", icon: "M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5 M2 12l10 5 10-5", desc: "We guide businesses and local governments through their first real steps in AI. Strategy, tools, and roadmaps built for non-technical teams." },
-            { title: "Agentic Automations", icon: "M2 3h20v14H2z M8 21h8 M12 17v4 M7 8l3 3-3 3 M12 14h5", desc: "We design autonomous AI agents that eliminate bottlenecks, reduce manual work, and handle tasks that were previously too costly to automate." },
-            { title: "Professional Web Presence", icon: "M16 18l6-6-6-6M8 6l-6 6 6 6 M12 4l-2 16", desc: "Modern, fast, and professional websites for SMEs and municipalities. From a clean landing page to a full multi-page site, built to grow with you." }
+            { title: "AI Consulting", desc: "We guide businesses and local governments through their first real steps in AI. Strategy, tools, and roadmaps built for non-technical teams." },
+            { title: "Agentic Automations", desc: "We design autonomous AI agents that eliminate bottlenecks, reduce manual work, and handle tasks that were previously too costly to automate." },
+            { title: "Professional Web Presence", desc: "Modern, fast, and professional websites for SMEs and municipalities. From a clean landing page to a full multi-page site, built to grow with you." }
           ].map((service, i) => (
-            <div key={i} className="group relative bg-[#0f1e38] border border-blue-400/10 p-10 rounded-3xl transition-all hover:-translate-y-2 hover:bg-[#122445] hover:border-blue-400/30 hover:shadow-2xl overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00d4ff] to-[#0072ff] opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <svg className="w-14 h-14 mb-8 stroke-[#00d4ff] fill-none stroke-[1.5]" viewBox="0 0 24 24">
-                <path d={service.icon} strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+            <div key={i} className="group relative bg-[#101c2e] border border-[#3c494e]/15 p-10 rounded-2xl transition-all hover:-translate-y-2 hover:bg-[#14233a] hover:border-[#00d4ff]/30 shadow-xl">
+              <div className="w-12 h-12 rounded-lg bg-[#00d4ff]/10 flex items-center justify-center mb-8 group-hover:bg-[#00d4ff]/20 transition-colors">
+                <div className="w-6 h-6 bg-[#00d4ff] rounded-sm"></div>
+              </div>
               <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-[#00d4ff] transition-colors">{service.title}</h3>
-              <p className="text-[#7fa8d4] leading-relaxed">{service.desc}</p>
+              <p className="text-[#bbc9cf] leading-relaxed font-medium">{service.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-24 max-w-3xl mx-auto px-6">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-white tracking-tight">Common Questions</h2>
-        <div className="space-y-6">
+      <section id="faq" className="py-32 max-w-4xl mx-auto px-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 text-white tracking-tighter">Common Questions</h2>
+        <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="bg-[#0f1e38]/50 border border-blue-400/10 rounded-2xl p-6 cursor-pointer hover:border-blue-400/30 transition-all" onClick={() => setActiveFaq(activeFaq === i ? null : i)}>
-              <div className="flex justify-between items-center text-lg font-bold text-white gap-4 text-left">
+            <div key={i} className="bg-[#101c2e] border border-[#3c494e]/15 rounded-xl overflow-hidden transition-all hover:border-[#00d4ff]/20" onClick={() => setActiveFaq(activeFaq === i ? null : i)}>
+              <div className="flex justify-between items-center p-6 text-lg font-bold text-white cursor-pointer select-none">
                 {faq.q}
-                <span className={`text-[#00d4ff] text-2xl font-light transition-transform flex-shrink-0 ${activeFaq === i ? "rotate-45" : ""}`}>+</span>
+                <span className={`text-[#00d4ff] text-2xl transition-transform ${activeFaq === i ? "rotate-45" : ""}`}>+</span>
               </div>
-              <div className={`overflow-hidden transition-all duration-300 ${activeFaq === i ? "max-h-96 mt-4 opacity-100" : "max-h-0 opacity-0"}`}>
-                <p className="text-[#7fa8d4] leading-relaxed border-t border-blue-400/10 pt-4">{faq.a}</p>
+              <div className={`transition-all duration-300 ease-in-out ${activeFaq === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+                <p className="px-6 pb-6 text-[#bbc9cf] leading-relaxed border-t border-[#3c494e]/10 pt-4 font-medium">{faq.a}</p>
               </div>
             </div>
           ))}
@@ -170,43 +160,81 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6">
-        <div className="max-w-5xl mx-auto bg-gradient-to-b from-[#122445] to-[#0f1e38] border border-blue-400/15 rounded-[3rem] p-10 md:p-24 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-[#00d4ff] to-[#0072ff] opacity-60"></div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight">Let's Talk</h2>
-          <p className="text-[#7fa8d4] text-lg md:text-xl mb-12 max-w-xl mx-auto">Ready to explore what AI can do for your organization? We would love to hear from you.</p>
-          
-          <div className="mb-12">
-            <a 
-              href="mailto:ardata.ai@gmail.com" 
-              className="text-2xl sm:text-3xl md:text-6xl font-black text-white hover:text-[#00d4ff] transition-all inline-block max-w-full break-all leading-tight"
-            >
-              ardata.ai@gmail.com
-            </a>
-          </div>
+      <section id="contact" className="py-32 px-6">
+        <div className="max-w-6xl mx-auto bg-[#101c2e] border border-[#3c494e]/15 rounded-3xl p-12 md:p-24 relative overflow-hidden">
+          <div className="grid md:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-5xl md:text-7xl font-bold mb-8 text-white tracking-tighter leading-tight">Let's build the <span className="text-[#00d4ff]">next era</span> together.</h2>
+              <p className="text-[#bbc9cf] text-xl mb-12 font-medium">Ready to explore what AI can do for your organization? We would love to hear from you.</p>
+              
+              <div className="space-y-8">
+                <div className="flex items-center gap-6">
+                  <div className="w-12 h-12 rounded-full bg-[#00d4ff]/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-[#00d4ff]">@</span>
+                  </div>
+                  <div>
+                    <div className="text-xs text-[#5c6d74] font-black uppercase tracking-widest mb-1">Email Us</div>
+                    <a href="mailto:ardata.ai@gmail.com" className="text-xl font-bold text-white hover:text-[#00d4ff] transition-colors">ardata.ai@gmail.com</a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-6">
+                  <div className="w-12 h-12 rounded-full bg-[#00d4ff]/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-[#00d4ff]">#</span>
+                  </div>
+                  <div>
+                    <div className="text-xs text-[#5c6d74] font-black uppercase tracking-widest mb-1">Global HQ</div>
+                    <div className="text-xl font-bold text-white">Worldwide / Israel</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <button 
-            onClick={copyEmail} 
-            className="group px-8 py-4 rounded-full bg-blue-400/10 border border-blue-400/20 text-white font-bold hover:bg-[#00d4ff] hover:text-[#0a1628] hover:border-[#00d4ff] transition-all flex items-center gap-3 mx-auto"
-          >
-            <span>Copy Email Address</span>
-            <svg className="w-5 h-5 opacity-50 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-          </button>
+            <div className="bg-[#071325] p-10 rounded-2xl border border-[#3c494e]/15">
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-[#5c6d74] uppercase tracking-widest">First Name</label>
+                    <input type="text" placeholder="John" className="w-full bg-[#101c2e] border border-[#3c494e]/15 rounded-lg p-3 text-white focus:border-[#00d4ff]/50 outline-none transition-all" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-[#5c6d74] uppercase tracking-widest">Company</label>
+                    <input type="text" placeholder="Acme Corp" className="w-full bg-[#101c2e] border border-[#3c494e]/15 rounded-lg p-3 text-white focus:border-[#00d4ff]/50 outline-none transition-all" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-[#5c6d74] uppercase tracking-widest">Inquiry Type</label>
+                  <select className="w-full bg-[#101c2e] border border-[#3c494e]/15 rounded-lg p-3 text-white focus:border-[#00d4ff]/50 outline-none transition-all appearance-none">
+                    <option>Strategic Consulting</option>
+                    <option>Agentic Automation</option>
+                    <option>Web Development</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-[#5c6d74] uppercase tracking-widest">Message</label>
+                  <textarea placeholder="How can we help?" rows={4} className="w-full bg-[#101c2e] border border-[#3c494e]/15 rounded-lg p-3 text-white focus:border-[#00d4ff]/50 outline-none transition-all resize-none"></textarea>
+                </div>
+                <button className="w-full py-4 rounded-xl bg-[#00d4ff] text-[#071325] font-bold hover:opacity-90 transition-all shadow-lg active:scale-[0.98]">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-16 bg-[#0a1628] border-t border-blue-400/10 text-center px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-2xl font-bold text-white mb-8">ARdata.ai</div>
-          <ul className="flex flex-wrap justify-center gap-8 md:gap-12 mb-12 text-[#7fa8d4] font-medium">
-            <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+      <footer className="py-20 bg-[#101c2e] border-t border-[#3c494e]/10 text-center px-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+          <div className="text-2xl font-bold tracking-tighter text-[#a8e8ff]">ARdata.ai</div>
+          <ul className="flex flex-wrap justify-center gap-8 md:gap-12 text-[#bbc9cf] font-medium text-sm">
+            <li><Link href="/about" className="hover:text-[#00d4ff] transition-colors">About Us</Link></li>
             {["services", "faq", "contact"].map(item => (
-              <li key={item}><a href={`#${item}`} className="hover:text-white transition-colors capitalize">{item}</a></li>
+              <li key={item}><a href={`#${item}`} className="hover:text-[#00d4ff] transition-colors capitalize">{item}</a></li>
             ))}
           </ul>
-          <div className="h-px w-24 bg-blue-400/20 mx-auto mb-8"></div>
-          <p className="text-[#3d6080] text-sm">© 2026 ARdata.ai. All rights reserved.</p>
+          <div className="text-[#5c6d74] text-xs font-medium uppercase tracking-widest">
+            © 2026 ARdata.ai. All rights reserved.
+          </div>
         </div>
       </footer>
     </main>
