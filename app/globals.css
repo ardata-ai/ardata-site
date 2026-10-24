@@ -1,24 +1,58 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
+/* obsidian theme */
 
-:root {
-  --background: #071325;
-  --foreground: #e8f0fe;
-  --primary: #00d4ff;
-  --secondary: #0072ff;
+@theme {
+  --color-bg-main: #090d16;
+  --color-bg-soft: #0e1524;
+  --color-bg-card: #131b2e;
+  --color-text-main: #f9fafb;
+  --color-text-muted: #94a3b8;
+  --color-brand-cyan: #00c2ff;
+  --color-ink: #041018;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+
+  --shadow-soft: 0 10px 30px rgb(0 0 0 / 0.35);
+  --shadow-lift: 0 0 28px rgb(0 194 255 / 0.22);
+  --shadow-glow: 0 0 20px rgb(0 194 255 / 0.15);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #071325;
-    --foreground: #e8f0fe;
-  }
+@utility bg-main {
+  background-color: var(--color-bg-main);
+}
+@utility bg-soft {
+  background-color: var(--color-bg-soft);
+}
+@utility bg-card {
+  background-color: var(--color-bg-card);
+}
+@utility text-main {
+  color: var(--color-text-main);
+}
+@utility text-muted {
+  color: var(--color-text-muted);
+}
+@utility border-main {
+  border-color: var(--color-text-main);
+}
+
+:root {
+  --background: #090d16;
+  --foreground: #f9fafb;
+  --primary: #00c2ff;
+  --secondary: #f9fafb;
+  color-scheme: dark;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   margin: 0;
-  font-family: var(--font-jakarta), sans-serif;
+  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 }
 
 :focus {
@@ -30,20 +64,19 @@ body {
   outline-offset: 3px;
 }
 
-/* Custom scrollbar for a premium feel */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #071325;
+  background: #090d16;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1a2a40;
+  background: #243049;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #253a56;
+  background: #33415c;
 }

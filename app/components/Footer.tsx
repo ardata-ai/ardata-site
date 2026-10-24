@@ -9,21 +9,21 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="py-20 bg-[#101c2e] border-t border-[#3c494e]/10 text-center px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-        <Link href="/" className="text-2xl font-bold tracking-tight text-[#a8e8ff] rounded-sm">
-          ARdata.ai
+    <footer className="border-t border-white/10 bg-soft px-6 py-16 text-center md:px-12 md:py-20">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center justify-between gap-10 md:flex-row">
+        <Link href="/" className="rounded-sm text-2xl font-bold tracking-tight text-main">
+          ARdata<span className="text-brand-cyan">.ai</span>
         </Link>
-        <ul className="flex flex-wrap justify-center gap-8 md:gap-12 text-[#bbc9cf] font-medium text-sm">
+        <ul className="flex flex-wrap justify-center gap-8 text-sm font-medium text-muted md:gap-12">
           {FOOTER_LINKS.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className="hover:text-[#00d4ff] transition-colors rounded-sm">
+              <Link href={item.href} className="rounded-sm transition-colors duration-200 hover:text-brand-cyan">
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
-        <p className="text-[#7fa8d4] text-xs font-medium uppercase tracking-widest">
+        <p className="text-xs font-medium uppercase tracking-widest text-muted">
           © 2026 ARdata.ai. All rights reserved.
         </p>
       </div>

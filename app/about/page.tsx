@@ -2,132 +2,150 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ExpertiseCard from "../components/ExpertiseCard";
+import { FlowVisual, NetworkVisual, SpatialVisual } from "../components/VisualFrames";
 
 export const metadata: Metadata = {
   title: "About Us | ARdata.ai",
   description:
-    "Our technical expertise spans the entire spectrum of modern AI development, from complex agentic workflows to high-impact web architectures.",
+    "We help growing companies and public organizations take their first real steps in AI—with a clear action plan, the right tech stack, and zero technical jargon.",
 };
 
 const specializations = [
   {
-    title: "Agentic Workflows & Multi-Agent Systems",
+    title: "AI Workflows & Agentic Automations",
     description:
-      "We build sophisticated autonomous systems where specialized AI agents collaborate to solve complex, multi-step business logic. This isn't just automation—it's cognitive labor orchestration. By leveraging platforms like n8n, we connect your existing tech stack to execute complex tasks without manual intervention.",
-    techStack: ["LangGraph", "CrewAI", "AutoGPT", "Python Microservices", "n8n"],
-    imagePlaceholder: "Agentic Workflows & Multi-Agent Systems",
+      "Beyond basic chatbots—we build smart AI workflows that actually take action. Our autonomous agents execute multi-step business logic, connect your existing tools, and handle complex operational tasks without manual intervention.",
+    tags: ["Multi-Step Logic", "CRM & System Sync", "Smart Decisioning", "End-to-End Execution"],
+    caption: "agents.flow",
+    visual: <NetworkVisual />,
+    glow: "from-cyan-400/30 via-emerald-400/25 to-transparent",
   },
   {
-    title: "Professional Web Presence",
+    title: "AI-Ready Web & Applications",
     description:
-      "We translate AI complexity into accessible, high-converting digital experiences. Our web solutions are built for speed, SEO, and visual impact—ensuring your tech looks as advanced as it truly is. From single-page landing to multi-page sites with embedded AI assistants.",
-    techStack: ["Next.js", "Tailwind CSS", "Vercel Edge", "AI Chat Integration"],
-    imagePlaceholder: "Professional Web Presence",
+      "We build fast, modern digital interfaces and custom web applications designed specifically around AI workflows, interactive data dashboards, and automated customer portals.",
+    tags: ["AI Dashboards & Portals", "Next.js & React", "Custom AI UI/UX", "Full-Stack Web"],
+    caption: "portal.ai",
+    visual: <SpatialVisual />,
+    glow: "from-fuchsia-500/30 via-violet-500/25 to-transparent",
   },
   {
-    title: "AI Transformation Strategy",
+    title: "Practical AI Strategy",
     description:
-      "Beyond the code, we provide the roadmap. We identify high-ROI opportunities for AI integration within your existing operations, ensuring your technology investments drive measurable business growth. No prior AI knowledge required.",
-    techStack: ["ROI Mapping", "Governance", "Ethical AI", "Stack Selection", "Readiness Assessment"],
-    imagePlaceholder: "AI Transformation Strategy",
+      "We build clear, actionable roadmaps to help your organization adopt AI easily. We identify high-value opportunities and guide you step-by-step on embedding the right tools into your existing workflows—with zero friction.",
+    tags: ["AI Roadmap", "Workflow Integration", "Tool Selection", "ROI Optimization"],
+    caption: "roadmap.plan",
+    visual: <FlowVisual />,
+    glow: "from-violet-500/30 via-amber-400/20 to-transparent",
   },
 ];
 
-const secondaryButtonClassName =
-  "px-10 py-5 rounded-xl bg-transparent border border-[#00d4ff]/30 text-white font-bold text-lg hover:bg-[#00d4ff]/10 transition-all";
+const primaryButtonClass =
+  "inline-flex items-center justify-center rounded-xl bg-brand-cyan px-8 py-4 text-lg font-semibold text-ink shadow-[0_8px_24px_rgba(0,194,255,0.28)] transition-all duration-200 hover:scale-105 hover:shadow-[0_16px_34px_rgba(0,194,255,0.4)]";
+
+const secondaryButtonClass =
+  "inline-flex items-center justify-center rounded-xl border border-white/30 bg-transparent px-8 py-4 text-lg font-semibold text-main transition-all duration-200 hover:scale-105 hover:bg-white/10";
+
+function FounderFrame() {
+  return (
+    <figure className="relative mx-auto w-full max-w-md lg:ml-auto lg:mr-0" aria-label="Founder and lead architect">
+      <div className="rounded-[1.75rem] bg-gradient-to-br from-cyan-500 to-blue-600 p-[2px] shadow-[0_0_36px_rgba(0,194,255,0.28)]">
+      <div className="flex aspect-[4/5] flex-col overflow-hidden rounded-[1.6rem] border border-white/10 bg-card">
+        <div className="relative min-h-0 flex-1">
+          <svg viewBox="0 0 320 420" className="h-full w-full" aria-hidden="true">
+            <defs>
+              <radialGradient id="founder-glow" cx="50%" cy="42%" r="55%">
+                <stop offset="0%" stopColor="#00C2FF" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#00C2FF" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="320" height="420" fill="#131B2E" />
+            <rect width="320" height="420" fill="url(#founder-glow)" />
+            <g stroke="#00C2FF" strokeOpacity="0.45" strokeWidth="1.4">
+              <path d="M70 150 H160 V250 H250" fill="none" />
+              <path d="M160 90 V250 M110 200 H230" />
+              <circle cx="160" cy="168" r="46" fill="none" strokeDasharray="3 6" />
+            </g>
+            <g fill="#00C2FF">
+              <circle cx="70" cy="150" r="6" />
+              <circle cx="160" cy="90" r="6" />
+              <circle cx="160" cy="168" r="8" />
+              <circle cx="160" cy="250" r="6" />
+              <circle cx="250" cy="250" r="6" />
+              <circle cx="230" cy="200" r="5" />
+              <circle cx="110" cy="200" r="5" />
+            </g>
+            <g fill="#E7F8FF">
+              <circle cx="160" cy="168" r="3" />
+              <circle cx="250" cy="250" r="2.5" />
+            </g>
+          </svg>
+        </div>
+        <figcaption className="border-t border-white/10 bg-[#10182A]/80 px-6 py-5 backdrop-blur-md">
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-sm font-bold text-ink">
+              AR
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-cyan">ARdata.ai</p>
+              <p className="text-base font-semibold text-main">Founder & Lead Architect</p>
+            </div>
+          </div>
+        </figcaption>
+      </div>
+      </div>
+    </figure>
+  );
+}
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#071325] text-white selection:bg-[#00d4ff]/30 pt-16">
+    <main className="min-h-screen bg-main pt-16 text-main selection:bg-brand-cyan/30">
       <Header />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 pt-16 md:pt-20 pb-32">
-        <section className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-32">
+      <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-12 md:py-20">
+        <section className="mb-20 grid items-center gap-12 lg:mb-32 lg:grid-cols-2 lg:gap-20">
           <div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-8 tracking-tight leading-[1.15] text-balance">
-              Forging the <span className="text-[#00d4ff]">Digital Frontier</span> with Precision.
+            <h1 className="mb-8 text-balance text-4xl font-bold leading-[1.12] tracking-tight text-main sm:text-5xl md:text-7xl">
+              Forging the <span className="text-brand-cyan">Digital Frontier</span> with Precision.
             </h1>
-            <p className="text-[#bbc9cf] text-xl max-w-2xl leading-relaxed font-medium">
-              Our technical expertise spans the entire spectrum of modern AI development, from complex agentic workflows to
-              high-impact web architectures.
+            <p className="max-w-2xl text-lg font-medium leading-relaxed text-muted md:text-xl">
+              We help growing companies and public organizations take their first real steps in AI—with a clear action plan, the right tech stack, and zero technical jargon.
             </p>
           </div>
-          <div
-            className="relative aspect-[4/5] w-full max-w-md mx-auto lg:ml-auto lg:mr-0 rounded-2xl border border-[#3c494e]/20 bg-[#101c2e] overflow-hidden"
-            aria-label="Founder photo placeholder"
-          >
-            <div className="absolute inset-4 rounded-xl border border-dashed border-[#bbc9cf]/25 flex items-center justify-center">
-              <p className="text-sm font-medium text-[#bbc9cf] text-center px-6">[TODO: founder photo]</p>
-            </div>
+          <FounderFrame />
+        </section>
+
+        <section aria-labelledby="core-areas-heading">
+          <div className="mb-12 max-w-2xl">
+            <h2 id="core-areas-heading" className="text-4xl font-bold tracking-tight text-main md:text-5xl">
+              Our Core Areas
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              Three practices that take an organization from first question to a working system.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+            {specializations.map((spec) => (
+              <ExpertiseCard key={spec.title} {...spec} />
+            ))}
           </div>
         </section>
 
-        <div className="space-y-48">
-          {specializations.map((spec, index) => (
-            <section
-              key={spec.title}
-              className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-24 items-center`}
-            >
-              <div className="flex-1 space-y-10">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-px bg-[#00d4ff]/50" />
-                  <div className="text-[#00d4ff] text-xs font-black uppercase tracking-[0.2em]">
-                    Expertise 0{index + 1}
-                  </div>
-                </div>
-                <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight leading-tight">{spec.title}</h2>
-                <p className="text-xl text-[#bbc9cf] leading-relaxed font-medium">{spec.description}</p>
-                <div className="flex flex-wrap gap-2 pt-4">
-                  {spec.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-2 bg-[#101c2e] border border-[#3c494e]/20 rounded-lg text-sm font-semibold text-[#bbc9cf] hover:border-[#00d4ff]/30 transition-colors"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex-1 w-full">
-                <div className="relative rounded-2xl border border-[#3c494e]/20 overflow-hidden bg-[#101c2e] shadow-2xl group transition-all duration-500 hover:border-[#00d4ff]/30">
-                  <div className="p-4 bg-[#14233a] border-b border-[#3c494e]/10 flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#3c494e]/30" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#3c494e]/30" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#3c494e]/30" />
-                  </div>
-                  <div className="aspect-[16/10] bg-[#071325] flex items-center justify-center p-12 relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/5 to-transparent" />
-                    <div className="text-center">
-                      <div className="w-20 h-20 mx-auto mb-6 bg-[#00d4ff]/10 rounded-2xl flex items-center justify-center border border-[#00d4ff]/20">
-                        <div className="w-10 h-10 bg-[#00d4ff] opacity-40 blur-sm rounded-full" />
-                      </div>
-                      <p className="text-[#7fa8d4] text-xs font-black uppercase tracking-widest mb-2">Visualizing</p>
-                      <p className="text-[#bbc9cf] font-mono italic text-sm">{spec.imagePlaceholder}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          ))}
-        </div>
-
-        <section className="mt-48 text-center py-32 border-t border-[#3c494e]/10 bg-gradient-to-b from-[#071325] to-[#101c2e] rounded-[3rem]">
-          <h2 className="text-5xl md:text-6xl font-bold mb-10 tracking-tight">
-            Ready to <span className="text-[#00d4ff]">Architect</span> Your Future?
+        <section className="mt-20 rounded-3xl border border-white/10 bg-card px-6 py-16 text-center shadow-glow md:mt-32 md:py-24">
+          <h2 className="mb-8 text-4xl font-bold tracking-tight text-main md:text-6xl">
+            Ready to <span className="text-brand-cyan">Architect</span> Your Future?
           </h2>
-          <p className="text-[#bbc9cf] text-xl mb-12 max-w-2xl mx-auto font-medium">
+          <p className="mx-auto mb-10 max-w-2xl text-lg font-medium text-muted md:text-xl">
             Join forward-thinking organizations leveraging our technical expertise to build the next generation of
             intelligent systems.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link
-              href="/#contact"
-              className="px-10 py-5 rounded-xl bg-[#00d4ff] text-[#071325] font-bold text-lg hover:scale-105 transition-transform shadow-xl"
-            >
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+            <Link href="/#contact" className={primaryButtonClass}>
               Schedule Consultation
             </Link>
-            <Link href="/" className={secondaryButtonClassName}>
+            <Link href="/" className={secondaryButtonClass}>
               View Our Work
             </Link>
           </div>

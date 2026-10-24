@@ -11,53 +11,55 @@ export default function FaqSection({ faqs }: { faqs: Faq[] }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 md:py-32 max-w-4xl mx-auto px-6 scroll-mt-20">
-      <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white tracking-tight">
-        Common Questions
-      </h2>
-      <div className="space-y-4">
-        {faqs.map((faq, i) => {
-          const panelId = `faq-panel-${i}`;
-          const buttonId = `faq-button-${i}`;
-          const isOpen = activeFaq === i;
+    <section id="faq" className="scroll-mt-20 px-6 py-20 md:px-12 md:py-32">
+      <div className="mx-auto w-full max-w-[1400px]">
+        <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-main md:mb-16 md:text-5xl">
+          Common Questions
+        </h2>
+        <div className="space-y-4">
+          {faqs.map((faq, i) => {
+            const panelId = `faq-panel-${i}`;
+            const buttonId = `faq-button-${i}`;
+            const isOpen = activeFaq === i;
 
-          return (
-            <div
-              key={faq.q}
-              className="bg-[#101c2e] border border-[#3c494e]/15 rounded-xl overflow-hidden transition-all hover:border-[#00d4ff]/20"
-            >
-              <h3>
-                <button
-                  type="button"
-                  id={buttonId}
-                  aria-expanded={isOpen}
-                  aria-controls={panelId}
-                  className="flex justify-between items-center w-full p-6 text-left text-lg font-bold text-white rounded-xl"
-                  onClick={() => setActiveFaq(isOpen ? null : i)}
-                >
-                  {faq.q}
-                  <span
-                    className={`text-[#00d4ff] text-2xl transition-transform ${isOpen ? "rotate-45" : ""}`}
-                    aria-hidden="true"
-                  >
-                    +
-                  </span>
-                </button>
-              </h3>
+            return (
               <div
-                id={panelId}
-                role="region"
-                aria-labelledby={buttonId}
-                hidden={!isOpen}
-                className={isOpen ? "block" : "hidden"}
+                key={faq.q}
+                className="overflow-hidden rounded-xl border border-white/10 bg-card shadow-glow transition-all duration-200 hover:-translate-y-1"
               >
-                <p className="px-6 pb-6 text-[#bbc9cf] leading-relaxed border-t border-[#3c494e]/10 pt-4 font-medium">
-                  {faq.a}
-                </p>
+                <h3>
+                  <button
+                    type="button"
+                    id={buttonId}
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    className="flex w-full items-center justify-between gap-4 rounded-xl p-6 text-left text-lg font-bold text-main"
+                    onClick={() => setActiveFaq(isOpen ? null : i)}
+                  >
+                    {faq.q}
+                    <span
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-2xl leading-none text-brand-cyan transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  hidden={!isOpen}
+                  className={isOpen ? "block" : "hidden"}
+                >
+                  <p className="border-t border-white/10 px-6 pb-6 pt-4 font-medium leading-relaxed text-muted">
+                    {faq.a}
+                  </p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );
