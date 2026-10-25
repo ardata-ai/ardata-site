@@ -5,6 +5,10 @@ import type { Lang } from "./types";
 const urls = {
   home: { en: "/", he: "/he/" },
   about: { en: "/about/", he: "/he/about/" },
+  useCase: {
+    en: "/use-cases/modern-consulting-website/",
+    he: "/he/use-cases/modern-consulting-website/",
+  },
 } as const;
 
 export function pageMetadata(lang: Lang, page: keyof typeof urls): Metadata {
