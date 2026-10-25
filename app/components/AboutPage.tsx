@@ -78,7 +78,18 @@ export default function AboutPage({ lang }: { lang: Lang }) {
 
   return (
     <main className="min-h-screen bg-main pt-16 text-main selection:bg-brand-cyan/30">
-      <Header brand={dict.brand} nav={dict.nav} a11y={dict.header} />
+      <Header
+        brand={dict.brand}
+        nav={dict.nav}
+        a11y={dict.header}
+        switchTo={{
+          href: dict.switcher.aboutHref,
+          label: dict.switcher.label,
+          labelLang: dict.switcher.labelLang,
+          hrefLang: dict.switcher.hreflang,
+          ariaLabel: dict.switcher.ariaLabel,
+        }}
+      />
 
       <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-12 md:py-20">
         <section className="mb-20 grid items-center gap-12 lg:mb-32 lg:grid-cols-2 lg:gap-20">

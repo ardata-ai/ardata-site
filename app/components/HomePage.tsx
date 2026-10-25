@@ -23,7 +23,18 @@ export default function HomePage({ lang }: { lang: Lang }) {
 
   return (
     <main className="relative overflow-x-hidden bg-main text-main selection:bg-brand-cyan/30 pt-16">
-      <Header brand={dict.brand} nav={dict.nav} a11y={dict.header} />
+      <Header
+        brand={dict.brand}
+        nav={dict.nav}
+        a11y={dict.header}
+        switchTo={{
+          href: dict.switcher.homeHref,
+          label: dict.switcher.label,
+          labelLang: dict.switcher.labelLang,
+          hrefLang: dict.switcher.hreflang,
+          ariaLabel: dict.switcher.ariaLabel,
+        }}
+      />
 
       <header className="relative flex items-center justify-center px-6 pb-8 pt-14 text-center md:px-12 md:pb-10 md:pt-20">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(0,194,255,0.18),transparent_55%)]" />

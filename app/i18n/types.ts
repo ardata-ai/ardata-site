@@ -52,6 +52,14 @@ export type Dictionary = {
     closeMenu: string;
     closeOverlay: string;
   };
+  switcher: {
+    label: string;
+    labelLang: Lang;
+    hreflang: Lang;
+    ariaLabel: string;
+    homeHref: string;
+    aboutHref: string;
+  };
   footer: {
     copyright: string;
   };

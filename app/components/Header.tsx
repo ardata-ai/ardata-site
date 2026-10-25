@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Dictionary } from "../i18n/types";
+import LanguageSwitch from "./LanguageSwitch";
 
 const linkClass =
   "rounded-sm text-sm font-semibold text-muted transition-all duration-200 hover:text-brand-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-cyan";
@@ -14,10 +15,18 @@ export default function Header({
   brand,
   nav,
   a11y,
+  switchTo,
 }: {
   brand: Dictionary["brand"];
   nav: Dictionary["nav"];
   a11y: Dictionary["header"];
+  switchTo: {
+    href: string;
+    label: string;
+    labelLang: Dictionary["switcher"]["labelLang"];
+    hrefLang: Dictionary["switcher"]["hreflang"];
+    ariaLabel: string;
+  };
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -60,6 +69,7 @@ export default function Header({
           {brand.name}<span className="text-brand-cyan">{brand.suffix}</span>
         </Link>
 
+        <div className="flex items-center gap-2 md:gap-8">
         <ul className="hidden items-center gap-8 md:flex">
           {nav.links.map((item) => (
             <li key={item.href}>
@@ -87,6 +97,14 @@ export default function Header({
           <span className={`h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : "w-4"}`} />
           <span className={`h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? "w-6 -translate-y-2 -rotate-45" : "w-5"}`} />
         </button>
+        <LanguageSwitch
+          href={switchTo.href}
+          label={switchTo.label}
+          labelLang={switchTo.labelLang}
+          hrefLang={switchTo.hrefLang}
+          ariaLabel={switchTo.ariaLabel}
+        />
+        </div>
       </nav>
     </header>
 

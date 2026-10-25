@@ -36,6 +36,14 @@ export const he: Dictionary = {
     closeMenu: "Close menu",
     closeOverlay: "Close menu overlay",
   },
+  switcher: {
+    label: "English",
+    labelLang: "en",
+    hreflang: "en",
+    ariaLabel: "מעבר לאנגלית",
+    homeHref: "/",
+    aboutHref: "/about/",
+  },
   footer: {
     copyright: "© 2026 ARdata.ai. All rights reserved.",
   },
