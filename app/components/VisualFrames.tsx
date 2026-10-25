@@ -8,12 +8,12 @@ export function BrowserFrame({
   children: ReactNode;
 }) {
   return (
-    <div className="relative bg-card">
+    <div className="relative bg-card" dir="ltr">
       <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.04] px-4 py-3">
         <span className="h-3 w-3 rounded-full bg-[#ff5f57] shadow-[0_0_8px_#ff5f57]" />
         <span className="h-3 w-3 rounded-full bg-[#febc2e] shadow-[0_0_8px_#febc2e]" />
         <span className="h-3 w-3 rounded-full bg-[#28c840] shadow-[0_0_8px_#28c840]" />
-        <span className="ml-2 truncate font-mono text-[11px] font-medium tracking-wide text-white/55">
+        <span className="ms-2 truncate font-mono text-[11px] font-medium tracking-wide text-white/55">
           {caption}
         </span>
       </div>

@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import AboutPage from "../../../components/AboutPage";
-import { he } from "../../../i18n/he";
+import { pageMetadata } from "../../../i18n/metadata";
 
-export const metadata: Metadata = {
-  title: he.meta.about.title,
-  description: he.meta.about.description,
-};
+export const metadata: Metadata = pageMetadata("he", "about");
 
 export default function Page() {
   return <AboutPage lang="he" />;

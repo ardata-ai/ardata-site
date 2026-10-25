@@ -133,7 +133,11 @@ export const en: Dictionary = {
     emailFieldLabel: "Email",
     emailPlaceholder: "you@company.com",
     inquiryLabel: "Inquiry Type",
-    inquiryOptions: ["Strategic Consulting", "Agentic Automation", "Web Development"],
+    inquiryOptions: [
+      { value: "Strategic Consulting", label: "Strategic Consulting" },
+      { value: "Agentic Automation", label: "Agentic Automation" },
+      { value: "Web Development", label: "Web Development" },
+    ],
     messageLabel: "Message",
     messagePlaceholder: "How can we help?",
     submit: "Send Message",

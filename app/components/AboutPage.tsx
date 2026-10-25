@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import ExpertiseCard from "./ExpertiseCard";
 import { AreaVisual, areaGlow } from "./areaVisuals";
+import { Copy } from "./Copy";
 import { getDictionary } from "../i18n";
 import type { Lang } from "../i18n";
 
@@ -16,14 +17,16 @@ function FounderFrame({
   ariaLabel,
   brand,
   role,
+  mirror,
 }: {
   ariaLabel: string;
   brand: string;
   role: string;
+  mirror: boolean;
 }) {
   return (
-    <figure className="relative mx-auto w-full max-w-md lg:ml-auto lg:mr-0" aria-label={ariaLabel}>
-      <div className="rounded-[1.75rem] bg-gradient-to-br from-cyan-500 to-blue-600 p-[2px] shadow-[0_0_36px_rgba(0,194,255,0.28)]">
+    <figure className="relative mx-auto w-full max-w-md lg:ms-auto lg:me-0" aria-label={ariaLabel}>
+      <div className={`rounded-[1.75rem] p-[2px] shadow-[0_0_36px_rgba(0,194,255,0.28)] ${mirror ? "bg-gradient-to-bl from-cyan-500 to-blue-600" : "bg-gradient-to-br from-cyan-500 to-blue-600"}`}>
       <div className="flex aspect-[4/5] flex-col overflow-hidden rounded-[1.6rem] border border-white/10 bg-card">
         <div className="relative min-h-0 flex-1">
           <svg viewBox="0 0 320 420" className="h-full w-full" aria-hidden="true">
@@ -61,7 +64,7 @@ function FounderFrame({
               AR
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-cyan">{brand}</p>
+              <p dir="ltr" className="text-xs font-bold uppercase tracking-[0.18em] text-brand-cyan">{brand}</p>
               <p className="text-base font-semibold text-main">{role}</p>
             </div>
           </div>
@@ -89,28 +92,51 @@ export default function AboutPage({ lang }: { lang: Lang }) {
           hrefLang: dict.switcher.hreflang,
           ariaLabel: dict.switcher.ariaLabel,
         }}
+        lang={lang}
       />
 
       <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-12 md:py-20">
         <section className="mb-20 grid items-center gap-12 lg:mb-32 lg:grid-cols-2 lg:gap-20">
           <div>
-            <h1 className="mb-8 text-balance text-4xl font-bold leading-[1.12] tracking-tight text-main sm:text-5xl md:text-7xl">
-              {about.headlineBefore}<span className="text-brand-cyan">{about.headlineAccent}</span>{about.headlineAfter}
+            <h1
+              className={
+                lang === "he"
+                  ? "mb-8 text-balance text-4xl font-bold leading-[1.25] text-main sm:text-5xl md:text-6xl"
+                  : "mb-8 text-balance text-4xl font-bold leading-[1.12] tracking-tight text-main sm:text-5xl md:text-7xl"
+              }
+            >
+              <Copy lang={lang} text={about.headlineBefore} />
+              <span className="text-brand-cyan">
+                <Copy lang={lang} text={about.headlineAccent} />
+              </span>
+              <Copy lang={lang} text={about.headlineAfter} />
             </h1>
             <p className="max-w-2xl text-lg font-medium leading-relaxed text-muted md:text-xl">
-              {about.intro}
+              <Copy lang={lang} text={about.intro} />
             </p>
           </div>
-          <FounderFrame ariaLabel={about.founderAriaLabel} brand={about.founderBrand} role={about.founderRole} />
+          <FounderFrame
+            ariaLabel={about.founderAriaLabel}
+            brand={about.founderBrand}
+            role={about.founderRole}
+            mirror={lang === "he"}
+          />
         </section>
 
         <section aria-labelledby="core-areas-heading">
           <div className="mb-12 max-w-2xl">
-            <h2 id="core-areas-heading" className="text-4xl font-bold tracking-tight text-main md:text-5xl">
-              {about.areasTitle}
+            <h2
+              id="core-areas-heading"
+              className={
+                lang === "he"
+                  ? "text-4xl font-bold leading-snug text-main md:text-5xl"
+                  : "text-4xl font-bold tracking-tight text-main md:text-5xl"
+              }
+            >
+              <Copy lang={lang} text={about.areasTitle} />
             </h2>
             <p className="mt-4 text-lg text-muted">
-              {about.areasIntro}
+              <Copy lang={lang} text={about.areasIntro} />
             </p>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
@@ -125,6 +151,7 @@ export default function AboutPage({ lang }: { lang: Lang }) {
                   caption={area.caption}
                   visual={<AreaVisual id={area.id} />}
                   glow={areaGlow[area.id]}
+                  lang={lang}
                 />
               );
             })}
@@ -132,24 +159,34 @@ export default function AboutPage({ lang }: { lang: Lang }) {
         </section>
 
         <section className="mt-20 rounded-3xl border border-white/10 bg-card px-6 py-16 text-center shadow-glow md:mt-32 md:py-24">
-          <h2 className="mb-8 text-4xl font-bold tracking-tight text-main md:text-6xl">
-            {about.ctaBefore}<span className="text-brand-cyan">{about.ctaAccent}</span>{about.ctaAfter}
+          <h2
+            className={
+              lang === "he"
+                ? "mb-8 text-4xl font-bold leading-snug text-main md:text-6xl"
+                : "mb-8 text-4xl font-bold tracking-tight text-main md:text-6xl"
+            }
+          >
+            <Copy lang={lang} text={about.ctaBefore} />
+            <span className="text-brand-cyan">
+              <Copy lang={lang} text={about.ctaAccent} />
+            </span>
+            <Copy lang={lang} text={about.ctaAfter} />
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-lg font-medium text-muted md:text-xl">
-            {about.ctaBody}
+            <Copy lang={lang} text={about.ctaBody} />
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
             <Link href={about.primaryHref} className={primaryButtonClass}>
-              {about.primaryCta}
+              <Copy lang={lang} text={about.primaryCta} />
             </Link>
             <Link href={about.secondaryHref} className={secondaryButtonClass}>
-              {about.secondaryCta}
+              <Copy lang={lang} text={about.secondaryCta} />
             </Link>
           </div>
         </section>
       </div>
 
-      <Footer brand={dict.brand} nav={dict.nav} copyright={dict.footer.copyright} />
+      <Footer brand={dict.brand} nav={dict.nav} copyright={dict.footer.copyright} lang={lang} />
     </main>
   );
 }

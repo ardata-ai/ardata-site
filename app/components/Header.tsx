@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import type { Dictionary } from "../i18n/types";
+import type { Dictionary, Lang } from "../i18n/types";
 import LanguageSwitch from "./LanguageSwitch";
 
 const linkClass =
@@ -16,10 +16,12 @@ export default function Header({
   nav,
   a11y,
   switchTo,
+  lang,
 }: {
   brand: Dictionary["brand"];
   nav: Dictionary["nav"];
   a11y: Dictionary["header"];
+  lang: Lang;
   switchTo: {
     href: string;
     label: string;
@@ -64,6 +66,7 @@ export default function Header({
       <nav className="relative mx-auto flex h-full w-full max-w-[1400px] items-center justify-between px-6 md:px-12" aria-label={a11y.navLabel}>
         <Link
           href={nav.homeHref}
+          dir="ltr"
           className="rounded-sm text-2xl font-bold tracking-tight text-main focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-cyan"
         >
           {brand.name}<span className="text-brand-cyan">{brand.suffix}</span>
@@ -112,8 +115,8 @@ export default function Header({
         id="mobile-nav"
         inert={!isMobileMenuOpen}
         aria-hidden={!isMobileMenuOpen}
-        className={`fixed inset-y-0 right-0 z-[1001] w-[280px] max-w-[85vw] transform border-l border-white/10 bg-card shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-y-0 end-0 z-[1001] w-[280px] max-w-[85vw] transform border-s border-white/10 bg-card shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
+          isMobileMenuOpen ? "translate-x-0" : lang === "he" ? "-translate-x-full" : "translate-x-full"
         }`}
       >
         <ul className="flex flex-col gap-8 px-10 pt-24">

@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import HomePage from "../components/HomePage";
-import { en } from "../i18n/en";
+import { pageMetadata } from "../i18n/metadata";
 
-export const metadata: Metadata = {
-  title: en.meta.home.title,
-  description: en.meta.home.description,
-};
+export const metadata: Metadata = pageMetadata("en", "home");
 
 export default function Page() {
   return <HomePage lang="en" />;

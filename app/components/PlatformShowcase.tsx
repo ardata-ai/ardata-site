@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import type { Dictionary } from "../i18n/types";
+import type { Dictionary, Lang } from "../i18n/types";
+import { Copy } from "./Copy";
 
 function OpenAiMark() {
   return (
@@ -86,16 +87,24 @@ export default function PlatformShowcase({
   label,
   ariaLabel,
   names,
+  lang,
 }: {
   label: string;
   ariaLabel: string;
   names: Dictionary["platforms"]["names"];
+  lang: Lang;
 }) {
   return (
     <section id="tools" className="scroll-mt-20 border-y border-white/10 bg-soft py-20 md:py-32" aria-label={ariaLabel}>
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-12">
-        <p className="mb-10 text-center text-xs font-bold uppercase tracking-[0.22em] text-muted">
-          {label}
+        <p
+          className={
+            lang === "he"
+              ? "mb-10 text-center text-xs font-bold text-muted"
+              : "mb-10 text-center text-xs font-bold uppercase tracking-[0.22em] text-muted"
+          }
+        >
+          <Copy lang={lang} text={label} />
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:flex-nowrap lg:justify-between">
           {names.map((name) => (

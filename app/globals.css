@@ -39,6 +39,9 @@
 @utility border-main {
   border-color: var(--color-text-main);
 }
+body.font-hebrew {
+  font-family: "Plus Jakarta Sans", Rubik, ui-sans-serif, system-ui, sans-serif;
+}
 
 :root {
   --background: #090d16;

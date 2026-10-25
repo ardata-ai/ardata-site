@@ -113,7 +113,11 @@ export type Dictionary = {
     emailFieldLabel: string;
     emailPlaceholder: string;
     inquiryLabel: string;
-    inquiryOptions: [string, string, string];
+    inquiryOptions: [
+      { value: string; label: string },
+      { value: string; label: string },
+      { value: string; label: string },
+    ];
     messageLabel: string;
     messagePlaceholder: string;
     submit: string;
