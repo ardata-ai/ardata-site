@@ -1,20 +1,36 @@
 "use client";
 
 import { useState } from "react";
+import type { Lang } from "../i18n/types";
+import { Copy } from "./Copy";
 
 type Faq = {
   q: string;
   a: string;
 };
 
-export default function FaqSection({ faqs }: { faqs: Faq[] }) {
+export default function FaqSection({
+  heading,
+  faqs,
+  lang,
+}: {
+  heading: string;
+  faqs: readonly Faq[];
+  lang: Lang;
+}) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   return (
     <section id="faq" className="scroll-mt-20 px-6 py-20 md:px-12 md:py-32">
       <div className="mx-auto w-full max-w-[1400px]">
-        <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-main md:mb-16 md:text-5xl">
-          Common Questions
+        <h2
+          className={
+            lang === "he"
+              ? "mb-12 text-center text-4xl font-bold leading-snug text-main md:mb-16 md:text-5xl"
+              : "mb-12 text-center text-4xl font-bold tracking-tight text-main md:mb-16 md:text-5xl"
+          }
+        >
+          <Copy lang={lang} text={heading} />
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, i) => {
@@ -33,10 +49,12 @@ export default function FaqSection({ faqs }: { faqs: Faq[] }) {
                     id={buttonId}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
-                    className="flex w-full items-center justify-between gap-4 rounded-xl p-6 text-left text-lg font-bold text-main"
+                    className="flex w-full items-center justify-between gap-4 rounded-xl p-6 text-start text-lg font-bold text-main"
                     onClick={() => setActiveFaq(isOpen ? null : i)}
                   >
-                    {faq.q}
+                    <span className="min-w-0 flex-1 text-start">
+                      <Copy lang={lang} text={faq.q} />
+                    </span>
                     <span
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-2xl leading-none text-brand-cyan transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
                       aria-hidden="true"
@@ -53,7 +71,7 @@ export default function FaqSection({ faqs }: { faqs: Faq[] }) {
                   className={isOpen ? "block" : "hidden"}
                 >
                   <p className="border-t border-white/10 px-6 pb-6 pt-4 font-medium leading-relaxed text-muted">
-                    {faq.a}
+                    <Copy lang={lang} text={faq.a} />
                   </p>
                 </div>
               </div>
