@@ -5,12 +5,12 @@ export const en: Dictionary = {
     home: {
       title: "ARdata.ai | AI Consulting & Agentic Automations",
       description:
-        "I help organizations decide where to start with AI: a practical roadmap, automations connected to existing systems, and Next.js interfaces.",
+        "A practical starting point for AI: a written roadmap, automations connected to systems already in use, and a Next.js interface.",
     },
     about: {
       title: "About | ARdata.ai",
       description:
-        "Founder of ARdata.ai. 15+ years in data, 10+ years in machine learning, and recent work with AI agents, including public sector and finance.",
+        "15+ years in data, complex analytics and machine learning projects, and process automation, including public sector and finance.",
     },
   },
   brand: {
@@ -52,12 +52,12 @@ export const en: Dictionary = {
       { text: "is the hard part.", accent: false },
     ],
     subtitle:
-      "I help you decide where AI is worth the work: a written roadmap, automations that connect to the systems you already use, and the interface to run them.",
-    trust: "15+ years in data · 10+ years in machine learning · Public sector and finance",
+      "A practical starting point: a written roadmap, automations that connect to systems already in use, and an interface to run them.",
+    trust: "15+ years in data · Complex analytics, machine learning projects, and process automation · Public sector and finance",
     primaryCta: "Book a consultation",
     primaryHref: "#contact",
-    secondaryCta: "How I work",
-    secondaryHref: "/about/#how-i-work",
+    secondaryCta: "How the work is done",
+    secondaryHref: "/about/#how-the-work-is-done",
   },
   homeServices: {
     title: "Core areas",
@@ -82,7 +82,7 @@ export const en: Dictionary = {
     strategy: {
       title: "Practical AI strategy",
       description:
-        "I write a short roadmap: where to start, which tools fit the systems you already use, and what to leave for later.",
+        "A short roadmap: where to start, which tools fit the systems already in use, and what to leave for later.",
       outcomeLabel: "You leave with",
       outcome: "A written roadmap, with an order of work and a list of what not to touch yet.",
       tags: ["Where to start", "Tool fit", "What to skip", "Written roadmap"],
@@ -92,7 +92,7 @@ export const en: Dictionary = {
     workflows: {
       title: "Agentic automations",
       description:
-        "Past a basic chatbot. I build a workflow that runs more than one step and connects to tools you already use.",
+        "Beyond a basic chatbot: a workflow that runs more than one step and connects to tools already in use.",
       outcomeLabel: "You leave with",
       outcome: "A workflow or agent that carries a task across steps and connects to the systems already in place.",
       tags: ["Multi-step work", "Existing systems", "AI agents", "Handoffs"],
@@ -102,7 +102,7 @@ export const en: Dictionary = {
     web: {
       title: "Web and applications",
       description:
-        "I build Next.js and React interfaces around that work: a dashboard, a portal, or a screen people actually use. I built this site myself.",
+        "A Next.js and React interface around that work: a dashboard, a portal, or a screen people use. This site was built the same way.",
       outcomeLabel: "You leave with",
       outcome: "A Next.js and React interface for the workflow, a dashboard, or a portal.",
       tags: ["Dashboards and portals", "Next.js & React", "Interfaces for AI", "Built end to end"],
@@ -112,7 +112,7 @@ export const en: Dictionary = {
   },
   platforms: {
     ariaLabel: "Tools and platforms",
-    label: "Platforms I work with",
+    label: "Platforms worked with",
     names: ["OpenAI", "Anthropic", "Google", "Microsoft", "AWS", "Snowflake"],
   },
   faq: {
@@ -120,11 +120,11 @@ export const en: Dictionary = {
     items: [
       {
         q: "Who is ARdata.ai for?",
-        a: "I work with small and medium-sized businesses worldwide, and local municipalities in Israel. Organizations that know AI matters but are not sure where to begin. No in-house tech team required.",
+        a: "Small and medium-sized businesses worldwide, and local municipalities in Israel. Organizations that know AI matters but are not sure where to begin. No in-house technical team required.",
       },
       {
         q: "Do I need technical knowledge?",
-        a: "No. I translate AI into clear steps for people who make decisions and do not come from a technical background.",
+        a: "No. Technical work is translated into clear steps for people who make decisions and do not come from a technical background.",
       },
       {
         q: "What does an agentic automation actually do?",
@@ -136,16 +136,16 @@ export const en: Dictionary = {
       },
       {
         q: "How do I get started?",
-        a: "Use the contact form below and I will set up an introductory call.",
+        a: "Use the contact form below to set up an introductory call.",
       },
       {
         q: "What is this based on?",
-        a: "15+ years in data, 10+ years in machine learning, including complex multi-class classification and prediction, and about three years with AI agents and language models. I also worked at one of the Big Four, including government tenders and projects, with extensive experience in the public sector and finance.",
+        a: "15+ years in data, and 10+ years involved in complex machine learning and analytics projects, including multi-class classification and prediction, with familiarity with forecasting, clustering, and recommendation methods. The same background includes process automations and agentic workflows connected to existing systems, work at a Big Four firm on government-related projects, and substantial experience in the public sector and finance.",
       },
     ],
   },
   contact: {
-    headline: "Tell me where you want to start.",
+    headline: "Where is the right place to start?",
     intro: "A short call to see whether a roadmap, an automation, or an interface is the right first step.",
     emailLabel: "Email",
     emailAddress: "ardata.ai@gmail.com",
@@ -175,10 +175,10 @@ export const en: Dictionary = {
     headlineAccent: "A clear place to start",
     headlineAfter: " with AI.",
     intro:
-      "I am the founder of ARdata.ai. I help organizations take the first practical step in AI: a roadmap, an automation connected to the systems already in use, or the interface that makes it usable.",
+      "The work is a first practical step in AI: a roadmap, an automation connected to systems already in use, or the interface that makes it usable. Technical choices are explained for the people who have to decide.",
     background:
-      "That rests on 15+ years in data and 10+ years in machine learning, including complex multi-class classification and prediction projects, and about three years with AI agents and language models. I worked at one of the Big Four, including government tenders and projects, with extensive experience in the public sector and finance. I build the automations and the websites myself, including this one, in Next.js and React.",
-    howTitle: "How I work",
+      "The background is 15+ years in data and 10+ years involved in complex machine learning and analytics projects, including multi-class classification and prediction, plus familiarity with forecasting, clustering, and recommendation methods. It also includes process automations, agentic workflows connected to existing systems, and integrating AI into systems organizations already use. Earlier work was at a Big Four firm, including government-related projects, with substantial experience in the public sector and finance. Privacy and regulatory questions have come up alongside that work, not as a specialist practice. This website was built independently in Next.js and React.",
+    howTitle: "How the work is done",
     howIntro: "Four steps, from the first question to something people can use.",
     steps: [
       { title: "Discovery", body: "The question, the systems, and the constraints." },

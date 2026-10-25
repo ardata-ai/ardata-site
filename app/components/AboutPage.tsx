@@ -101,7 +101,7 @@ export default function AboutPage({ lang }: { lang: Lang }) {
           />
         </section>
 
-        <section id="how-i-work" className="mb-20 scroll-mt-24 lg:mb-32">
+        <section id="how-the-work-is-done" className="mb-20 scroll-mt-24 lg:mb-32">
           <div className="mb-12 max-w-2xl">
             <h2
               className={
