@@ -26,6 +26,7 @@ export const he: Dictionary = {
     homeHref: "/he/",
     links: [
       { href: "/he/about", label: "אודות" },
+      { href: "/he/use-cases/modern-consulting-website", label: "דוגמאות" },
       { href: "/he/#services", label: "שירותים" },
       { href: "/he/#faq", label: "שאלות נפוצות" },
       { href: "/he/#contact", label: "יצירת קשר" },
@@ -73,6 +74,8 @@ export const he: Dictionary = {
       { id: "workflows", caption: "agents.flow" },
       { id: "web", caption: "portal.ai" },
     ],
+    useCaseLabel: "צפה בדוגמה",
+    useCaseHref: "/he/use-cases/modern-consulting-website",
   },
   approach: {
     title: "הגישה",

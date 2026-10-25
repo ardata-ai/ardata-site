@@ -118,6 +118,13 @@ export default function HomePage({ lang }: { lang: Lang }) {
               );
             })}
           </div>
+
+          <Link
+            href={dict.homeServices.useCaseHref}
+            className="mt-10 inline-flex text-sm font-semibold text-brand-cyan hover:underline"
+          >
+            <Copy lang={lang} text={dict.homeServices.useCaseLabel} />
+          </Link>
         </div>
       </section>
 
