@@ -39,6 +39,7 @@ export type Dictionary = {
   meta: {
     home: { title: string; description: string };
     about: { title: string; description: string };
+    useCase: { title: string; description: string };
   };
   brand: {
     name: string;
@@ -68,6 +69,7 @@ export type Dictionary = {
     ariaLabel: string;
     homeHref: string;
     aboutHref: string;
+    useCaseHref: string;
   };
   footer: {
     copyright: string;
@@ -157,5 +159,27 @@ export type Dictionary = {
     ctaBody: string;
     primaryCta: string;
     primaryHref: string;
+  };
+  useCase: {
+    backLabel: string;
+    backHref: string;
+    eyebrow: string;
+    title: string;
+    backgroundTitle: string;
+    background: [string, string];
+    challengesTitle: string;
+    challengesIntro: string;
+    challenges: [string, string, string, string, string];
+    solutionTitle: string;
+    solutionIntro: string;
+    techTitle: string;
+    tech: [string, string, string, string];
+    refinementsTitle: string;
+    refinements: [string, string, string];
+    deliveredTitle: string;
+    deliveredIntro: string;
+    delivered: [string, string, string, string, string];
+    outcomeTitle: string;
+    outcome: [string, string];
   };
 };

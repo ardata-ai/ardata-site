@@ -12,6 +12,11 @@ export const en: Dictionary = {
       description:
         "15+ years in data, complex analytics and machine learning projects, and process automation, including public sector and finance.",
     },
+    useCase: {
+      title: "Use Case: A Modern Consulting Website | ARdata.ai",
+      description:
+        "A technology consulting firm replaced an outdated site with a fast, bilingual Next.js website that explains the work clearly and opens a simple path to contact.",
+    },
   },
   brand: {
     name: "ARdata",
@@ -41,6 +46,7 @@ export const en: Dictionary = {
     ariaLabel: "Switch to Hebrew",
     homeHref: "/he/",
     aboutHref: "/he/about/",
+    useCaseHref: "/he/use-cases/modern-consulting-website/",
   },
   footer: {
     copyright: "© 2026 ARdata.ai. All rights reserved.",
@@ -200,5 +206,54 @@ export const en: Dictionary = {
     ctaBody: "A short call to see whether a roadmap, an automation, or an interface is the right first step.",
     primaryCta: "Book a consultation",
     primaryHref: "/#contact",
+  },
+  useCase: {
+    backLabel: "Back to home",
+    backHref: "/",
+    eyebrow: "Use Case",
+    title: "Building a Modern Website for a Technology Consulting Firm",
+    backgroundTitle: "Background",
+    background: [
+      "A company that provides consulting and implementation of advanced technology solutions for organizations approached us. They had a clear business need: an updated, fast, and clear website that would explain to their target audience (managers and organizations interested in technology) what they do, without unnecessary jargon, and allow easy contact.",
+      "Their previous website was outdated, slow, and did not reflect the level of work they actually deliver. The goal was not “another pretty website,” but a digital asset that would work both as a marketing tool and as an entry point into the sales process.",
+    ],
+    challengesTitle: "The Challenges",
+    challengesIntro: "During the project, several points required business and technical refinement:",
+    challenges: [
+      "Clarity of messaging: The services needed to be written in a way that non-technical people could understand, without losing professional accuracy.",
+      "Content structure: How to organize the information so visitors quickly understand what is offered, the value, and how to start working together.",
+      "Dual language: The site needed to serve both English-speaking and Hebrew-speaking audiences while maintaining consistency.",
+      "Performance and simplicity: They wanted a light, fast site that wouldn’t overwhelm visitors, and that would also be easy to maintain and update.",
+      "Iterative refinements: We went through several rounds of refining wording, section order, and what should be emphasized versus what could stay in the background.",
+    ],
+    solutionTitle: "The Solution",
+    solutionIntro: "We built a new website from scratch, with a focus on speed, clarity, and simple maintenance.",
+    techTitle: "Main technologies",
+    tech: [
+      "Next.js + React — for building the site, including support for both languages.",
+      "Clean, modern design with emphasis on readability and user experience.",
+      "Clear content structure: a homepage with the three main areas of activity, an about page, an FAQ, and a contact form.",
+      "Basic optimization for loading speed and mobile.",
+    ],
+    refinementsTitle: "During the work we performed several refinement rounds:",
+    refinements: [
+      "Business wording was shortened and made more direct.",
+      "The order of presenting the services was adjusted to match how potential clients think: from the problem, to the solution, to the next steps.",
+      "Short explanations were added next to each area of activity to reduce confusion.",
+    ],
+    deliveredTitle: "What We Delivered",
+    deliveredIntro: "At the end of the project the client received:",
+    delivered: [
+      "A live, fast, mobile-friendly website in two languages.",
+      "A clear content structure that explains the services without overload.",
+      "A technical foundation in Next.js that allows them to add pages, articles, or additional use cases in the future without rebuilding everything.",
+      "Clean, sufficiently documented code so they can continue updating it themselves or with another team.",
+      "Basic SEO settings: titles, descriptions, and hreflang between languages.",
+    ],
+    outcomeTitle: "Outcome",
+    outcome: [
+      "The company received a website that more accurately represents their work and allows visitors to quickly understand what is offered and how to proceed.",
+      "The site now serves as a clear entry point for inquiries, instead of an outdated brochure site that did not support their business goals.",
+    ],
   },
 };

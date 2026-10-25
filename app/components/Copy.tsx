@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { Lang } from "../i18n/types";
 
-const TOKEN = /(ARdata\.ai|Next\.js|Full-Stack|UI\/UX|CRM)([?.:,]*)/g;
+const TOKEN = /(ARdata\.ai|Next\.js|Full-Stack|UI\/UX|CRM|Use Cases|React|SEO|hreflang)([?.:,]*)/g;
 
 type Part = { ltr: boolean; text: string };
 
