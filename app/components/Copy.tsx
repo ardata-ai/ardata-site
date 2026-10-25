@@ -23,13 +23,17 @@ export function Copy({ lang, text }: { lang: Lang; text: string }): ReactNode {
   const parts = partsOf(text);
   if (parts.length === 1 && !parts[0].ltr) return text;
 
-  return parts.map((part, index) =>
-    part.ltr ? (
-      <bdi key={index} dir="ltr">
-        {part.text}
-      </bdi>
-    ) : (
-      <span key={index}>{part.text}</span>
-    ),
+  return (
+    <span>
+      {parts.map((part, index) =>
+        part.ltr ? (
+          <bdi key={index} dir="ltr">
+            {part.text}
+          </bdi>
+        ) : (
+          part.text
+        ),
+      )}
+    </span>
   );
 }

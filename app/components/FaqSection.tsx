@@ -52,7 +52,9 @@ export default function FaqSection({
                     className="flex w-full items-center justify-between gap-4 rounded-xl p-6 text-start text-lg font-bold text-main"
                     onClick={() => setActiveFaq(isOpen ? null : i)}
                   >
-                    <Copy lang={lang} text={faq.q} />
+                    <span className="min-w-0 flex-1 text-start">
+                      <Copy lang={lang} text={faq.q} />
+                    </span>
                     <span
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-2xl leading-none text-brand-cyan transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
                       aria-hidden="true"
