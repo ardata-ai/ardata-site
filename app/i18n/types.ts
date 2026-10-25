@@ -52,6 +52,7 @@ export type Dictionary = {
       { href: string; label: string },
       { href: string; label: string },
       { href: string; label: string },
+      { href: string; label: string },
     ];
     talkLabel: string;
     talkHref: string;
@@ -91,6 +92,8 @@ export type Dictionary = {
     title: string;
     subtitle: string;
     areas: [AreaRef, AreaRef, AreaRef];
+    useCaseLabel: string;
+    useCaseHref: string;
   };
   approach: {
     title: string;
