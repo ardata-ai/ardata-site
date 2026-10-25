@@ -106,11 +106,11 @@ export default function PlatformShowcase({
         >
           <Copy lang={lang} text={label} />
         </p>
-        <ul className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:flex-nowrap lg:justify-between">
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {names.map((name) => (
-            <li key={name} className="flex h-10 items-center gap-3 text-white">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center text-white">{platformIcons[name]}</span>
-              <span className="text-sm font-semibold tracking-tight text-main">{name}</span>
+            <li key={name} className="flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-card px-4 py-6 text-white">
+              <span className="flex h-10 w-10 items-center justify-center text-brand-cyan">{platformIcons[name]}</span>
+              <span dir="ltr" className="text-sm font-semibold tracking-tight text-main">{name}</span>
             </li>
           ))}
         </ul>

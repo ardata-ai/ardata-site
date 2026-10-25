@@ -6,18 +6,22 @@ import { BrowserFrame } from "./VisualFrames";
 type ExpertiseCardProps = {
   title: string;
   description: string;
+  outcomeLabel: string;
+  outcome: string;
   tags: string[];
   caption: string;
   visual: ReactNode;
   glow?: string;
-  href?: string;
-  cta?: string;
+  href: string;
+  cta: string;
   lang: Lang;
 };
 
 export default function ExpertiseCard({
   title,
   description,
+  outcomeLabel,
+  outcome,
   tags,
   caption,
   visual,
@@ -40,6 +44,12 @@ export default function ExpertiseCard({
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
           <Copy lang={lang} text={description} />
         </p>
+        <p className="mt-4 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-relaxed text-main">
+          <span className={lang === "he" ? "mb-1 block text-xs font-bold text-brand-cyan" : "mb-1 block text-xs font-bold uppercase tracking-widest text-brand-cyan"}>
+            <Copy lang={lang} text={outcomeLabel} />
+          </span>
+          <Copy lang={lang} text={outcome} />
+        </p>
         <div className="mt-auto pt-5">
           <ul className="flex flex-wrap gap-2">
             {tags.map((tag) => (
@@ -51,11 +61,9 @@ export default function ExpertiseCard({
               </li>
             ))}
           </ul>
-          {href && cta ? (
-            <a href={href} className="mt-5 inline-flex text-sm font-bold text-brand-cyan hover:underline">
-              {cta}
-            </a>
-          ) : null}
+          <a href={href} className="mt-5 inline-flex text-sm font-bold text-brand-cyan hover:underline">
+            <Copy lang={lang} text={cta} />
+          </a>
         </div>
       </div>
     </article>

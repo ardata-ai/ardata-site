@@ -74,6 +74,9 @@ export default function HomePage({ lang }: { lang: Lang }) {
               <Copy lang={lang} text={dict.hero.secondaryCta} />
             </Link>
           </div>
+          <p className="mx-auto mt-8 max-w-3xl text-sm font-medium text-muted">
+            <Copy lang={lang} text={dict.hero.trust} />
+          </p>
         </div>
       </header>
 
@@ -102,15 +105,51 @@ export default function HomePage({ lang }: { lang: Lang }) {
                   key={area.id}
                   title={service.title}
                   description={service.description}
+                  outcomeLabel={service.outcomeLabel}
+                  outcome={service.outcome}
                   tags={service.tags}
                   caption={area.caption}
                   visual={<AreaVisual id={area.id} />}
                   glow={areaGlow[area.id]}
+                  href={service.ctaHref}
+                  cta={service.cta}
                   lang={lang}
                 />
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section id="approach" className="scroll-mt-20 px-6 py-16 md:px-12 md:py-24">
+        <div className="mx-auto w-full max-w-[1400px]">
+          <div className="mb-12 max-w-2xl">
+            <h2
+              className={
+                lang === "he"
+                  ? "text-4xl font-bold leading-snug text-main md:text-5xl"
+                  : "text-4xl font-bold tracking-tight text-main md:text-5xl"
+              }
+            >
+              <Copy lang={lang} text={dict.approach.title} />
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted md:text-xl">
+              <Copy lang={lang} text={dict.approach.intro} />
+            </p>
+          </div>
+          <ol className="grid gap-6 md:grid-cols-3">
+            {dict.approach.steps.map((step, index) => (
+              <li key={step.title} className="rounded-2xl border border-white/10 bg-card p-6">
+                <p className="text-sm font-bold text-brand-cyan">{String(index + 1).padStart(2, "0")}</p>
+                <h3 className="mt-3 text-xl font-bold text-main">
+                  <Copy lang={lang} text={step.title} />
+                </h3>
+                <p className="mt-2 leading-relaxed text-muted">
+                  <Copy lang={lang} text={step.body} />
+                </p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -130,15 +169,11 @@ export default function HomePage({ lang }: { lang: Lang }) {
               <h2
                 className={
                   lang === "he"
-                    ? "mb-6 text-4xl font-bold leading-snug text-main md:text-6xl"
-                    : "mb-6 text-4xl font-bold leading-tight tracking-tight text-main md:text-6xl"
+                    ? "mb-6 text-4xl font-bold leading-snug text-main md:text-5xl"
+                    : "mb-6 text-4xl font-bold leading-tight tracking-tight text-main md:text-5xl"
                 }
               >
-                <Copy lang={lang} text={contact.headlineBefore} />
-                <span className="text-brand-cyan">
-                  <Copy lang={lang} text={contact.headlineAccent} />
-                </span>
-                <Copy lang={lang} text={contact.headlineAfter} />
+                <Copy lang={lang} text={contact.headline} />
               </h2>
               <p className="mb-10 text-lg font-medium text-muted md:text-xl">
                 <Copy lang={lang} text={contact.intro} />

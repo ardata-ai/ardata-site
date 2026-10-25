@@ -13,7 +13,16 @@ export type PlatformName =
 type ServiceCopy = {
   title: string;
   description: string;
+  outcomeLabel: string;
+  outcome: string;
   tags: [string, string, string, string];
+  cta: string;
+  ctaHref: string;
+};
+
+type Step = {
+  title: string;
+  body: string;
 };
 
 type AreaRef = {
@@ -70,6 +79,7 @@ export type Dictionary = {
       { text: string; accent: boolean },
     ];
     subtitle: string;
+    trust: string;
     primaryCta: string;
     primaryHref: string;
     secondaryCta: string;
@@ -79,6 +89,11 @@ export type Dictionary = {
     title: string;
     subtitle: string;
     areas: [AreaRef, AreaRef, AreaRef];
+  };
+  approach: {
+    title: string;
+    intro: string;
+    steps: [Step, Step, Step];
   };
   services: Record<ServiceId, ServiceCopy>;
   platforms: {
@@ -95,12 +110,10 @@ export type Dictionary = {
   };
   faq: {
     heading: string;
-    items: [FaqItem, FaqItem, FaqItem, FaqItem, FaqItem];
+    items: [FaqItem, FaqItem, FaqItem, FaqItem, FaqItem, FaqItem];
   };
   contact: {
-    headlineBefore: string;
-    headlineAccent: string;
-    headlineAfter: string;
+    headline: string;
     intro: string;
     emailLabel: string;
     emailAddress: string;
@@ -130,6 +143,11 @@ export type Dictionary = {
     headlineAccent: string;
     headlineAfter: string;
     intro: string;
+    background: string;
+    howTitle: string;
+    howIntro: string;
+    steps: [Step, Step, Step, Step];
+    photoLabel: string;
     areasTitle: string;
     areasIntro: string;
     areas: [AreaRef, AreaRef, AreaRef];
@@ -139,7 +157,5 @@ export type Dictionary = {
     ctaBody: string;
     primaryCta: string;
     primaryHref: string;
-    secondaryCta: string;
-    secondaryHref: string;
   };
 };
