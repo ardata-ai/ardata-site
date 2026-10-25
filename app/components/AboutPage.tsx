@@ -1,45 +1,10 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import ExpertiseCard from "../components/ExpertiseCard";
-import { FlowVisual, NetworkVisual, SpatialVisual } from "../components/VisualFrames";
-
-export const metadata: Metadata = {
-  title: "About Us | ARdata.ai",
-  description:
-    "We help growing companies and public organizations take their first real steps in AI—with a clear action plan, the right tech stack, and zero technical jargon.",
-};
-
-const specializations = [
-  {
-    title: "AI Workflows & Agentic Automations",
-    description:
-      "Beyond basic chatbots—we build smart AI workflows that actually take action. Our autonomous agents execute multi-step business logic, connect your existing tools, and handle complex operational tasks without manual intervention.",
-    tags: ["Multi-Step Logic", "CRM & System Sync", "Smart Decisioning", "End-to-End Execution"],
-    caption: "agents.flow",
-    visual: <NetworkVisual />,
-    glow: "from-cyan-400/30 via-emerald-400/25 to-transparent",
-  },
-  {
-    title: "AI-Ready Web & Applications",
-    description:
-      "We build fast, modern digital interfaces and custom web applications designed specifically around AI workflows, interactive data dashboards, and automated customer portals.",
-    tags: ["AI Dashboards & Portals", "Next.js & React", "Custom AI UI/UX", "Full-Stack Web"],
-    caption: "portal.ai",
-    visual: <SpatialVisual />,
-    glow: "from-fuchsia-500/30 via-violet-500/25 to-transparent",
-  },
-  {
-    title: "Practical AI Strategy",
-    description:
-      "We build clear, actionable roadmaps to help your organization adopt AI easily. We identify high-value opportunities and guide you step-by-step on embedding the right tools into your existing workflows—with zero friction.",
-    tags: ["AI Roadmap", "Workflow Integration", "Tool Selection", "ROI Optimization"],
-    caption: "roadmap.plan",
-    visual: <FlowVisual />,
-    glow: "from-violet-500/30 via-amber-400/20 to-transparent",
-  },
-];
+import Header from "./Header";
+import Footer from "./Footer";
+import ExpertiseCard from "./ExpertiseCard";
+import { AreaVisual, areaGlow } from "./areaVisuals";
+import { getDictionary } from "../i18n";
+import type { Lang } from "../i18n";
 
 const primaryButtonClass =
   "inline-flex items-center justify-center rounded-xl bg-brand-cyan px-8 py-4 text-lg font-semibold text-ink shadow-[0_8px_24px_rgba(0,194,255,0.28)] transition-all duration-200 hover:scale-105 hover:shadow-[0_16px_34px_rgba(0,194,255,0.4)]";
@@ -47,9 +12,17 @@ const primaryButtonClass =
 const secondaryButtonClass =
   "inline-flex items-center justify-center rounded-xl border border-white/30 bg-transparent px-8 py-4 text-lg font-semibold text-main transition-all duration-200 hover:scale-105 hover:bg-white/10";
 
-function FounderFrame() {
+function FounderFrame({
+  ariaLabel,
+  brand,
+  role,
+}: {
+  ariaLabel: string;
+  brand: string;
+  role: string;
+}) {
   return (
-    <figure className="relative mx-auto w-full max-w-md lg:ml-auto lg:mr-0" aria-label="Founder and lead architect">
+    <figure className="relative mx-auto w-full max-w-md lg:ml-auto lg:mr-0" aria-label={ariaLabel}>
       <div className="rounded-[1.75rem] bg-gradient-to-br from-cyan-500 to-blue-600 p-[2px] shadow-[0_0_36px_rgba(0,194,255,0.28)]">
       <div className="flex aspect-[4/5] flex-col overflow-hidden rounded-[1.6rem] border border-white/10 bg-card">
         <div className="relative min-h-0 flex-1">
@@ -88,8 +61,8 @@ function FounderFrame() {
               AR
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-cyan">ARdata.ai</p>
-              <p className="text-base font-semibold text-main">Founder & Lead Architect</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-cyan">{brand}</p>
+              <p className="text-base font-semibold text-main">{role}</p>
             </div>
           </div>
         </figcaption>
@@ -99,60 +72,73 @@ function FounderFrame() {
   );
 }
 
-export default function AboutPage() {
+export default function AboutPage({ lang }: { lang: Lang }) {
+  const dict = getDictionary(lang);
+  const about = dict.about;
+
   return (
     <main className="min-h-screen bg-main pt-16 text-main selection:bg-brand-cyan/30">
-      <Header />
+      <Header brand={dict.brand} nav={dict.nav} a11y={dict.header} />
 
       <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-12 md:py-20">
         <section className="mb-20 grid items-center gap-12 lg:mb-32 lg:grid-cols-2 lg:gap-20">
           <div>
             <h1 className="mb-8 text-balance text-4xl font-bold leading-[1.12] tracking-tight text-main sm:text-5xl md:text-7xl">
-              Forging the <span className="text-brand-cyan">Digital Frontier</span> with Precision.
+              {about.headlineBefore}<span className="text-brand-cyan">{about.headlineAccent}</span>{about.headlineAfter}
             </h1>
             <p className="max-w-2xl text-lg font-medium leading-relaxed text-muted md:text-xl">
-              We help growing companies and public organizations take their first real steps in AI—with a clear action plan, the right tech stack, and zero technical jargon.
+              {about.intro}
             </p>
           </div>
-          <FounderFrame />
+          <FounderFrame ariaLabel={about.founderAriaLabel} brand={about.founderBrand} role={about.founderRole} />
         </section>
 
         <section aria-labelledby="core-areas-heading">
           <div className="mb-12 max-w-2xl">
             <h2 id="core-areas-heading" className="text-4xl font-bold tracking-tight text-main md:text-5xl">
-              Our Core Areas
+              {about.areasTitle}
             </h2>
             <p className="mt-4 text-lg text-muted">
-              Three practices that take an organization from first question to a working system.
+              {about.areasIntro}
             </p>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
-            {specializations.map((spec) => (
-              <ExpertiseCard key={spec.title} {...spec} />
-            ))}
+            {about.areas.map((area) => {
+              const service = dict.services[area.id];
+              return (
+                <ExpertiseCard
+                  key={area.id}
+                  title={service.title}
+                  description={service.description}
+                  tags={service.tags}
+                  caption={area.caption}
+                  visual={<AreaVisual id={area.id} />}
+                  glow={areaGlow[area.id]}
+                />
+              );
+            })}
           </div>
         </section>
 
         <section className="mt-20 rounded-3xl border border-white/10 bg-card px-6 py-16 text-center shadow-glow md:mt-32 md:py-24">
           <h2 className="mb-8 text-4xl font-bold tracking-tight text-main md:text-6xl">
-            Ready to <span className="text-brand-cyan">Architect</span> Your Future?
+            {about.ctaBefore}<span className="text-brand-cyan">{about.ctaAccent}</span>{about.ctaAfter}
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-lg font-medium text-muted md:text-xl">
-            Join forward-thinking organizations leveraging our technical expertise to build the next generation of
-            intelligent systems.
+            {about.ctaBody}
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-            <Link href="/#contact" className={primaryButtonClass}>
-              Schedule Consultation
+            <Link href={about.primaryHref} className={primaryButtonClass}>
+              {about.primaryCta}
             </Link>
-            <Link href="/" className={secondaryButtonClass}>
-              View Our Work
+            <Link href={about.secondaryHref} className={secondaryButtonClass}>
+              {about.secondaryCta}
             </Link>
           </div>
         </section>
       </div>
 
-      <Footer />
+      <Footer brand={dict.brand} nav={dict.nav} copyright={dict.footer.copyright} />
     </main>
   );
 }

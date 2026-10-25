@@ -1,3 +1,6 @@
+import type { ReactNode } from "react";
+import type { Dictionary } from "../i18n/types";
+
 function OpenAiMark() {
   return (
     <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden="true">
@@ -70,27 +73,35 @@ function SnowflakeMark() {
   );
 }
 
-const platforms = [
-  { name: "OpenAI", icon: <OpenAiMark /> },
-  { name: "Anthropic", icon: <AnthropicMark /> },
-  { name: "Google", icon: <GoogleMark /> },
-  { name: "Microsoft", icon: <MicrosoftMark /> },
-  { name: "AWS", icon: <AwsMark /> },
-  { name: "Snowflake", icon: <SnowflakeMark /> },
-];
+const platformIcons: Record<Dictionary["platforms"]["names"][number], ReactNode> = {
+  OpenAI: <OpenAiMark />,
+  Anthropic: <AnthropicMark />,
+  Google: <GoogleMark />,
+  Microsoft: <MicrosoftMark />,
+  AWS: <AwsMark />,
+  Snowflake: <SnowflakeMark />,
+};
 
-export default function PlatformShowcase() {
+export default function PlatformShowcase({
+  label,
+  ariaLabel,
+  names,
+}: {
+  label: string;
+  ariaLabel: string;
+  names: Dictionary["platforms"]["names"];
+}) {
   return (
-    <section id="tools" className="scroll-mt-20 border-y border-white/10 bg-soft py-20 md:py-32" aria-label="Tools and platforms">
+    <section id="tools" className="scroll-mt-20 border-y border-white/10 bg-soft py-20 md:py-32" aria-label={ariaLabel}>
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-12">
         <p className="mb-10 text-center text-xs font-bold uppercase tracking-[0.22em] text-muted">
-          Tools & platforms we work with
+          {label}
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:flex-nowrap lg:justify-between">
-          {platforms.map((platform) => (
-            <li key={platform.name} className="flex h-10 items-center gap-3 text-white">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center text-white">{platform.icon}</span>
-              <span className="text-sm font-semibold tracking-tight text-main">{platform.name}</span>
+          {names.map((name) => (
+            <li key={name} className="flex h-10 items-center gap-3 text-white">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center text-white">{platformIcons[name]}</span>
+              <span className="text-sm font-semibold tracking-tight text-main">{name}</span>
             </li>
           ))}
         </ul>

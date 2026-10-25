@@ -2,13 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-const NAV_LINKS = [
-  { href: "/about", label: "About Us" },
-  { href: "/#services", label: "Services" },
-  { href: "/#faq", label: "FAQ" },
-  { href: "/#contact", label: "Contact" },
-] as const;
+import type { Dictionary } from "../i18n/types";
 
 const linkClass =
   "rounded-sm text-sm font-semibold text-muted transition-all duration-200 hover:text-brand-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-cyan";
@@ -16,7 +10,15 @@ const linkClass =
 const talkClass =
   "inline-flex h-11 items-center rounded-xl bg-brand-cyan px-6 text-base font-semibold text-ink shadow-[0_6px_18px_rgba(0,194,255,0.28)] transition-all duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan";
 
-export default function Header() {
+export default function Header({
+  brand,
+  nav,
+  a11y,
+}: {
+  brand: Dictionary["brand"];
+  nav: Dictionary["nav"];
+  a11y: Dictionary["header"];
+}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -50,16 +52,16 @@ export default function Header() {
           isScrolled ? "border-b border-white/10 bg-main/90" : "border-b border-transparent bg-main/70"
         }`}
       />
-      <nav className="relative mx-auto flex h-full w-full max-w-[1400px] items-center justify-between px-6 md:px-12" aria-label="Primary">
+      <nav className="relative mx-auto flex h-full w-full max-w-[1400px] items-center justify-between px-6 md:px-12" aria-label={a11y.navLabel}>
         <Link
-          href="/"
+          href={nav.homeHref}
           className="rounded-sm text-2xl font-bold tracking-tight text-main focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-cyan"
         >
-          ARdata<span className="text-brand-cyan">.ai</span>
+          {brand.name}<span className="text-brand-cyan">{brand.suffix}</span>
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((item) => (
+          {nav.links.map((item) => (
             <li key={item.href}>
               <Link href={item.href} className={linkClass}>
                 {item.label}
@@ -67,8 +69,8 @@ export default function Header() {
             </li>
           ))}
           <li>
-            <Link href="/#contact" className={talkClass}>
-              Let&apos;s Talk
+            <Link href={nav.talkHref} className={talkClass}>
+              {nav.talkLabel}
             </Link>
           </li>
         </ul>
@@ -78,7 +80,7 @@ export default function Header() {
           className="flex h-10 w-10 flex-col items-end justify-center gap-1.5 p-2 text-main focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-cyan md:hidden"
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-nav"
-          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMobileMenuOpen ? a11y.closeMenu : a11y.openMenu}
           onClick={() => setIsMobileMenuOpen((open) => !open)}
         >
           <span className={`h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? "w-6 translate-y-2 rotate-45" : "w-6"}`} />
@@ -97,7 +99,7 @@ export default function Header() {
         }`}
       >
         <ul className="flex flex-col gap-8 px-10 pt-24">
-          {NAV_LINKS.map((item) => (
+          {nav.links.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
@@ -109,8 +111,8 @@ export default function Header() {
             </li>
           ))}
           <li>
-            <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className={talkClass}>
-              Let&apos;s Talk
+            <Link href={nav.talkHref} onClick={() => setIsMobileMenuOpen(false)} className={talkClass}>
+              {nav.talkLabel}
             </Link>
           </li>
         </ul>
@@ -119,7 +121,7 @@ export default function Header() {
       {isMobileMenuOpen && (
         <button
           type="button"
-          aria-label="Close menu overlay"
+          aria-label={a11y.closeOverlay}
           className="fixed inset-0 z-[1000] bg-black/30 md:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />

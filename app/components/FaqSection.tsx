@@ -7,14 +7,14 @@ type Faq = {
   a: string;
 };
 
-export default function FaqSection({ faqs }: { faqs: Faq[] }) {
+export default function FaqSection({ heading, faqs }: { heading: string; faqs: readonly Faq[] }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   return (
     <section id="faq" className="scroll-mt-20 px-6 py-20 md:px-12 md:py-32">
       <div className="mx-auto w-full max-w-[1400px]">
         <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-main md:mb-16 md:text-5xl">
-          Common Questions
+          {heading}
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, i) => {
